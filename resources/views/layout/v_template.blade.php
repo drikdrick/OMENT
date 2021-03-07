@@ -174,7 +174,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/user" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Anggota
@@ -191,13 +191,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ asset('template/') }}/index.html" class="nav-link">
+                <a href="/buatrapat" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Buat Rapat</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ asset('template/') }}/index2.html" class="nav-link">
+                <a href="/hasilrapat" class="nav-link">
                   <i class="far fas fa-search nav-icon"></i>
                   <p>Hasil Rapat</p>
                 </a>
@@ -225,12 +225,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>@yield('title')</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">@yield('title')</li>
             </ol>
           </div>
         </div>
@@ -240,30 +240,7 @@
     <!-- Main content -->
     <section class="content">
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
+      @yield('content')
 
     </section>
     <!-- /.content -->

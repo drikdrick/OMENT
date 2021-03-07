@@ -14,8 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout.v_template');
+    return view('v_buatrapat');
 });
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::view('/buatrapat', 'v_buatrapat');
+Route::view('/hasilrapat', 'v_hasilrapat');
+Route::view('/user', 'v_user');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

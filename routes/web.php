@@ -21,6 +21,7 @@ Route::view('/buatrapat', 'v_buatrapat');
 Route::view('/hasilrapat', 'v_hasilrapat');
 Route::view('/user', 'v_user');
 Route::view('/jadwal', 'v_jadwal');
+Route::view('/dashboard', 'v_dashboard');
 
 Auth::routes();
 

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MeetingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('v_login');
-});
+
+Route::get('/',[HomeController::class, 'index'] );
 
 Route::view('/buatrapat', 'v_buatrapat');
 Route::view('/hasilrapat', 'v_hasilrapat');
-Route::view('/user', 'v_user');
+Route::get('/meeting/create',[MeetingController::class, 'buatRapat'] );
+Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
+Route::get('/user',[UserController::class, 'index'] );
 Route::view('/jadwal', 'v_jadwal');
 Route::view('/dashboard', 'v_dashboard');
 

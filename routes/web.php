@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/buatrapat', 'v_buatrapat');
+Route::view('/hasilrapat', 'v_hasilrapat');
+Route::view('/user', 'v_user');
+Route::view('/jadwal', 'v_jadwal');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

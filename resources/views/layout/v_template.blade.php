@@ -175,7 +175,7 @@
           </li>
           <li class="nav-item">
             <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-group"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Anggota
               </p>
@@ -190,7 +190,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ request()->is('hasilrapat') ? 'active' : '' }} {{ request()->is('buatrapat') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file"></i>
               <p>
                 Rapat

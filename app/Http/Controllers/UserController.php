@@ -28,4 +28,13 @@ class UserController extends Controller
 
         return view('v_userdetail', ['users' => $user]);
     }
+
+    public function delete($id)
+    {
+        DB::table('users')->delete($id);
+        $users = DB::table('users')->get();
+
+        return view('v_user', ['users' => $users]);
+    }
+
 }

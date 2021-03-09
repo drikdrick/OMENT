@@ -9,19 +9,20 @@
           <div class="card-header">
             <h3 class="card-title">List User</h3>
           </div>
-          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+          <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-default">
             <i class="far fa-plus-square nav-icon"></i> Add User
           </button>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-striped">
               <thead>
               <tr>
                 <th>No</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Foto</th>
-                <th></th>
+                <th style="width: 20%">
+                </th>
               </tr>
               </thead>
               <tbody>
@@ -40,7 +41,7 @@
                     <td class="text-center">
                       <img src="{{ url('foto/'.$data->foto) }}" width="50px" class="table-avatar">
                     </td>
-                    <td class="text-center">
+                    <td class="text-center ">
                       <a class="btn btn-primary btn-sm" href="/userdetail/{{ $data->id }}">
                         <i class="fas fa-folder">
                         </i>
@@ -51,7 +52,7 @@
                         </i>
                         Edit
                       </a>
-                      <a class="btn btn-danger btn-sm" href="#">
+                      <a class="btn btn-danger btn-sm" href="/delete/{{ $data->id }}">
                         <i class="fas fa-trash">
                         </i>
                         Delete

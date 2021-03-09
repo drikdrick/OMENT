@@ -61,15 +61,6 @@
                   </tr>
               @endforeach
               </tbody>
-              <tfoot>
-              <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Foto</th>
-                <th></th>
-              </tr>
-              </tfoot>
             </table>
           </div>
           <!-- /.card-body -->

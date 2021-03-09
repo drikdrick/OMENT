@@ -53,7 +53,7 @@
                         {{ $item->minuter }}
                     </td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
+                        <a class="btn btn-primary btn-sm" href="/meeting/hasil/{{ $item->id }}">
                             <i class="fas fa-folder">
                             </i>
                             View
@@ -63,7 +63,7 @@
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="#">
+                        <a class="btn btn-danger btn-sm" href="/meeting/deleteRapat/{{ $item->id }}">
                             <i class="fas fa-trash">
                             </i>
                             Delete

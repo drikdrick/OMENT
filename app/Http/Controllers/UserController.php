@@ -31,6 +31,9 @@ class UserController extends Controller
 
     public function delete($id)
     {
+        if (!$user = DB::table('users')->find($id)) {
+            abort(404);
+        } 
         DB::table('users')->delete($id);
         $users = DB::table('users')->get();
 

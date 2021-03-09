@@ -12,13 +12,29 @@ class MeetingController extends Controller
         $this->middleware('auth');
     }
 
-    public function buatRapat()
-    {
-        return view('v_buatrapat');
-    }
-
     public function hasilRapat()
     {
+        $meetings = DB::table('meetings')->get();
+
+        return view('v_hasilrapat', ['meetings' => $meetings]);
+    }
+
+    public function detailRapat($id)
+    {
+        if (!$meetings = DB::table('meetings')->find($id)) {
+            abort(404);
+        } 
+        $meetings = DB::table('meetings')->find($id);
+
+        return view('v_hasilrapatdetail', ['meetings' => $meetings]);
+    }
+
+    public function deleteRapat($id)
+    {
+        if (!$meetings = DB::table('meetings')->find($id)) {
+            abort(404);
+        } 
+        DB::table('meetings')->delete($id);
         $meetings = DB::table('meetings')->get();
 
         return view('v_hasilrapat', ['meetings' => $meetings]);

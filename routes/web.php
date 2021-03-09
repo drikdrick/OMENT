@@ -20,8 +20,9 @@ Route::get('/',[HomeController::class, 'index'] );
 
 Route::view('/buatrapat', 'v_buatrapat');
 Route::view('/hasilrapat', 'v_hasilrapat');
-Route::get('/meeting/create',[MeetingController::class, 'buatRapat'] );
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
+Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailRapat'] );
+Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
 Route::get('/user',[UserController::class, 'index'] );
 Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
 Route::get('/delete/{id}',[UserController::class, 'delete'] );

@@ -27,25 +27,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ asset('template/') }}/index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -153,7 +135,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/meeting/create" class="nav-link {{ request()->is('meeting/create') ? 'active' : '' }}">
+            <a href="/buatrapat" class="nav-link {{ request()->is('meeting/create') ? 'active' : '' }}">
               <i class="far fa-plus-square nav-icon"></i>
               <p>Buat Rapat</p>
             </a>
@@ -182,7 +164,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item active">@yield('title')</li>
             </ol>
           </div>
@@ -202,9 +184,8 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0-rc
     </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; TA 33TI Kelompok 10</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

@@ -38,86 +38,45 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <h4>Agenda 1</h4>
+                  <h4>1.	Membicarakan strategi Pembelajaran PJJ Ganjil 2020/2021 (Terlampir draft strategi dalam bentuk PPT dari WR 1) - IFY</h4>
                     <div class="post">
-                      <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="{{ asset('template/') }}/dist/img/user1-128x128.jpg" alt="user image">
-                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                        </span>
-                        <span class="description">Shared publicly - 7:45 PM today</span>
-                      </div>
+                      <h4>Tanggapan</h4>
                       <!-- /.user-block -->
                       <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore.
-                      </p>
-
-                      <p>
-                        <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v2</a>
+                        HER : Mata Kuliah mana yang akan di blok? Satu MK sulit tidak di combine dengan yang sulit jg-> dirumuskan MK apa yang cocok digabungkan
+                        IFY  : Rencana mahasiswa baru akan melalukan perkuliahan di kampus sehingga pendidikan karakter
+                        TNT : Diploma sistem paket, ada pre-requisite, kurikulum 2019 tidak mengakomodir pergeseran MK, kecuali transisi sudah di akomodir. Setuju untuk sistem blok, apakah 2 minggu cukup untuk 2 minggu, misalnya?
+                        Slide bertentangan, di minta video ajar tapi berbasis teks -> kita tidak bisa mengandalkan hanya video saja, jika ada yang berbasis teks untuk mengakomodir forum diskusi atau pertanyaan
+                        TMP  : Sistem blok hanya tugas dan ujian nya saja yang digabungkan?-> Ya, terkait simplifikasi tugas misalnya Daspro dan Matdis, namun ini juga terkait penjadwalan MK. 1 minggu hanya 2 MK tertentu yang running dan minggu berikutnya MK lain
+                        MK Daspro padat, jadi selama 2 minggu mahasiswa harus mencerna semua materi,bukannya ini semakin terbebani?
+                        TNT   : MK yang tidak ada korelasi, seperti apa penggabungannya? Penjadwalan juga membutuhkan dukungan BAAK -> 3 hari ini diminta di prodi untuk dibahas strateginya.
+                        Memang sistem blok membuat fokus, hanya harusnya ada dukungan dari WR I, apakah langsung UTS?
+                        MK PAM dan PAP, mahasiswa mendesign UI kemudian aplikasi mobile nya, RPS yang berubah hanya Minggu I – Minggu 16, jika sistem blok maka di buat menjadi Hari I dan seterusnya
+                        TMP   : Pelaksanaan sistem blok ini hanya parsial,PBO bisa dikompatibel kan dengan MK lain, tapi hanya beberapa bagian saja
+                        MPR  : Untuk Bahasa Inggris, pembelajaran dipadatkan ke sistem blok akan menyulitkan karena pembelajaran bahasa efektif dilakukan continuous. Pelaksanaan MK Bahasa Inggris akan dilaksanakan secara regular-> mereka hanya memikirkan 1 atau 2 minggu ko
                       </p>
                     </div>
                     <div class="post">
-                      <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="{{ asset('template/') }}/dist/img/user1-128x128.jpg" alt="user image">
-                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                        </span>
-                        <span class="description">Shared publicly - 7:45 PM today</span>
-                      </div>
+                      <h4>Usulan</h4>
                       <!-- /.user-block -->
                       <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore.
-                      </p>
-
-                      <p>
-                        <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v2</a>
-                      </p>
-                    </div>
-                    <div class="post clearfix">
-                      <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="{{ asset('template/') }}/dist/img/user7-128x128.jpg" alt="User Image">
-                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                        </span>
-                        <span class="description">Sent you a message - 3 days ago</span>
-                      </div>
-                      <!-- /.user-block -->
-                      <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore.
-                      </p>
-                      <p>
-                        <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 2</a>
-                      </p>
-                    </div>
-
-                    <div class="post">
-                      <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="{{ asset('template/') }}/dist/img/user1-128x128.jpg" alt="user image">
-                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                        </span>
-                        <span class="description">Shared publicly - 5 days ago</span>
-                      </div>
-                      <!-- /.user-block -->
-                      <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore.
-                      </p>
-
-                      <p>
-                        <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v1</a>
+                        HER : Mata Kuliah mana yang akan di blok? Satu MK sulit tidak di combine dengan yang sulit jg-> dirumuskan MK apa yang cocok digabungkan
+                        IFY  : Rencana mahasiswa baru akan melalukan perkuliahan di kampus sehingga pendidikan karakter
+                        TNT : Diploma sistem paket, ada pre-requisite, kurikulum 2019 tidak mengakomodir pergeseran MK, kecuali transisi sudah di akomodir. Setuju untuk sistem blok, apakah 2 minggu cukup untuk 2 minggu, misalnya?
+                        Slide bertentangan, di minta video ajar tapi berbasis teks -> kita tidak bisa mengandalkan hanya video saja, jika ada yang berbasis teks untuk mengakomodir forum diskusi atau pertanyaan
+                        TMP  : Sistem blok hanya tugas dan ujian nya saja yang digabungkan?-> Ya, terkait simplifikasi tugas misalnya Daspro dan Matdis, namun ini juga terkait penjadwalan MK. 1 minggu hanya 2 MK tertentu yang running dan minggu berikutnya MK lain
+                        MK Daspro padat, jadi selama 2 minggu mahasiswa harus mencerna semua materi,bukannya ini semakin terbebani?
+                        TNT   : MK yang tidak ada korelasi, seperti apa penggabungannya? Penjadwalan juga membutuhkan dukungan BAAK -> 3 hari ini diminta di prodi untuk dibahas strateginya.
+                        Memang sistem blok membuat fokus, hanya harusnya ada dukungan dari WR I, apakah langsung UTS?
+                        MK PAM dan PAP, mahasiswa mendesign UI kemudian aplikasi mobile nya, RPS yang berubah hanya Minggu I – Minggu 16, jika sistem blok maka di buat menjadi Hari I dan seterusnya
+                        TMP   : Pelaksanaan sistem blok ini hanya parsial,PBO bisa dikompatibel kan dengan MK lain, tapi hanya beberapa bagian saja
+                        MPR  : Untuk Bahasa Inggris, pembelajaran dipadatkan ke sistem blok akan menyulitkan karena pembelajaran bahasa efektif dilakukan continuous. Pelaksanaan MK Bahasa Inggris akan dilaksanakan secara regular-> mereka hanya memikirkan 1 atau 2 minggu ko
                       </p>
                     </div>
                 </div>
-              </div>
+              </div>              
             </div>
+            
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
               <div class="text-muted">
                 <p class="text-sm">Project Leader

@@ -23,6 +23,7 @@ Route::view('/hasilrapat', 'v_hasilrapat');
 Route::get('/meeting/create',[MeetingController::class, 'buatRapat'] );
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
 Route::get('/user',[UserController::class, 'index'] );
+Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
 Route::view('/jadwal', 'v_jadwal');
 Route::view('/dashboard', 'v_dashboard');
 

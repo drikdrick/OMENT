@@ -18,4 +18,14 @@ class UserController extends Controller
 
         return view('v_user', ['users' => $users]);
     }
+
+    public function detail($id)
+    {
+        if (!$user = DB::table('users')->find($id)) {
+            abort(404);
+        } 
+        $user = DB::table('users')->find($id);
+
+        return view('v_userdetail', ['users' => $user]);
+    }
 }

@@ -118,6 +118,7 @@
               </p>
             </a>
           </li>
+          @if (auth()->user()->role==1)
           <li class="nav-item">
             <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
               <i class="nav-icon fas fa-users"></i>
@@ -125,7 +126,8 @@
                 Users
               </p>
             </a>
-          </li>
+          </li>            
+          @endif
           <li class="nav-item">
             <a href="/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
               <i class="nav-icon far fa-calendar-alt"></i>

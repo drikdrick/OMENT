@@ -63,11 +63,13 @@
                             </i>
                             Edit
                         </a>
+                        @if (auth()->user()->role==1)
                         <a class="btn btn-danger btn-sm" href="/meeting/deleteRapat/{{ $item->id }}">
                             <i class="fas fa-trash">
                             </i>
                             Delete
-                        </a>
+                        </a>                            
+                        @endif
                     </td>
                 </tr>
                 @endforeach

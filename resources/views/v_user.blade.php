@@ -20,6 +20,7 @@
                 <th>No</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Foto</th>
                 <th style="width: 20%">
                 </th>
@@ -37,6 +38,9 @@
                     </td>
                     <td>
                       {{ $data->email }}
+                    </td>
+                    <td>
+                      {{ $data->role }}
                     </td>
                     <td class="text-center">
                       <img src="{{ url('foto/'.$data->foto) }}" width="50px" class="table-avatar">

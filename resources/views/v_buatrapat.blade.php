@@ -3,11 +3,10 @@
 @section('title', 'Buat Rapat')
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">General</h3>
-
+          <h3 class="card-title">Umum</h3>
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
@@ -17,7 +16,7 @@
         <div class="card-body">
           <div class="form-group">
             <label for="judul">Judul</label>
-            <input type="text" id="judul" class="form-control">
+            <input type="textarea" id="judul" class="form-control">
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
@@ -38,6 +37,45 @@
           <div class="form-group">
             <label for="notulen">Notulen</label>
             <input type="text" id="notulen" class="form-control">
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+
+    <div class="col-md-6">
+      <div class="card card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Tambahan</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="field_wrapper form-group">
+            <label for="judul">Topik</label>
+            <div style=" display:flex;">
+              <input type="text" id="judul" name="field_name[]" class="form-control"><br>
+              <a href="javascript:void(0);" class="add_button btn btn-primary" title="Add field" style="flex:1;">+</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleInputFile">Lampiran</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="exampleInputFile" multiple>
+                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text">Upload</span>
+              </div>
+            </div>
           </div>
         </div>
         <!-- /.card-body -->

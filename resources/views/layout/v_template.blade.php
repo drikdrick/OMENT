@@ -197,16 +197,11 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ asset('template/') }}/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
 <script src="{{ asset('template/') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
 <script src="{{ asset('template/') }}/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
 <script src="{{ asset('template/') }}/dist/js/demo.js"></script>
-<!-- DataTables  & Plugins -->
 <script src="{{ asset('template/') }}/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{ asset('template/') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{ asset('template/') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
@@ -219,6 +214,7 @@
 <script src="{{ asset('template/') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('template/') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('template/') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="{{ asset('template/') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -236,6 +232,35 @@
       "responsive": true,
     });
   });
+
+  $(function () {
+    bsCustomFileInput.init();
+  });
+
+  $(document).ready(function(){
+    var maxField = 8; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    var fieldHTML = '<div style="padding-top:5px; display:flex;"><input type="text" id="judul" name="field_name[]" class="form-control" style="flex:1;"><a href="javascript:void(0);" class="remove_button btn btn-danger">X</a></div>';
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addButton).click(function(){
+        //Check maximum number of input fields
+        if(x < maxField){ 
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+        }
+    });
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
 </script>
 </body>
 </html>
+

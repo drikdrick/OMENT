@@ -23,6 +23,7 @@ class CreateMeetingsTable extends Migration
             $table->string('leader');
             $table->string('minuter');
             $table->timestamp('created_at')->nullable();
+            $table->number('created_by');
         });
     }
 

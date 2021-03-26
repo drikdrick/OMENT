@@ -20,6 +20,7 @@ class Meeting extends Model
         'place',
         'leader',
         'minuter',
-        'created_at'
+        'created_at',
+        'created_by'
     ];
 }

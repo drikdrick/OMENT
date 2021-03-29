@@ -137,7 +137,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/buatrapat" class="nav-link {{ request()->is('meeting/create') ? 'active' : '' }}">
+            <a href="/meeting/buatrapat" class="nav-link {{ request()->is('meeting/buatrapat') ? 'active' : '' }}">
               <i class="far fa-plus-square nav-icon"></i>
               <p>Buat Rapat</p>
             </a>

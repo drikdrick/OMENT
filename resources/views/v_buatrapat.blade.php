@@ -36,7 +36,11 @@
           </div>
           <div class="form-group">
             <label for="notulen">Notulen</label>
-            <input type="text" id="notulen" class="form-control">
+            <select id="notulen" name="notulen" class="form-control">
+              @foreach ($users as $item)
+              <option value="{{ $item->id }}">{{ $item->name }}</option>
+              @endforeach
+            </select>
           </div>
         </div>
         <!-- /.card-body -->
@@ -71,9 +75,6 @@
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="exampleInputFile" multiple>
                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-              </div>
-              <div class="input-group-append">
-                <span class="input-group-text">Upload</span>
               </div>
             </div>
           </div>

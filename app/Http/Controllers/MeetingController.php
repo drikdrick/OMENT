@@ -28,7 +28,6 @@ class MeetingController extends Controller
     }
     public function createRapat(Request $request){
         $users=DB::table('users')->where('role', '2')->first();
-        $meetings=new Meeting();
         $meetings->title=$request->judul;
         $meetings->tanggal=$request->tanggal;
         $meetings->waktu_mulai=$request->mulai;
@@ -89,5 +88,16 @@ class MeetingController extends Controller
         DB::table('meetings')->delete($id);
 
         return $this->hasilRapat();
+    }
+
+    public function editRapat($id)
+    {
+        if (!$meetings = DB::table('meetings')->find($id)) {
+            abort(404);
+        }
+
+        $meetings = DB::table('meetings')->where('meetings.id',$id)->first();
+
+        return view('v_editrapat', ['meetings'=>$meetings]);
     }
 }

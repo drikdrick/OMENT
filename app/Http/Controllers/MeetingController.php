@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Meeting;
 use App\Models\Topics;
+use App\Models\Attachments;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class MeetingController extends Controller
         return view('v_buatrapat', ['users' => $users]);
     }
     public function createRapat(Request $request){
-        $users=DB::table('users')->where('role', '3')->first();
+        $users=DB::table('users')->where('role', '2')->first();
         $meetings=new Meeting();
         $meetings->title=$request->judul;
         $meetings->tanggal=$request->tanggal;
@@ -37,43 +38,47 @@ class MeetingController extends Controller
         $meetings->minuter=$request->notulen;
         $meetings->created_by=Auth::user()->id;
         $meetings->save();
-        if(is_array($request->field_name)){
-            for($i=0; $i<count($request->field_name);$i++){
-                $topics=new Topics();
-                $topics->judul=$request->field_name[$i];
-                $topics->meeting_id=$meetings->id;
-                $topics->save();
-            }
-        }else{
+        for($i=0; $i<count($request->field_name);$i++){
             $topics=new Topics();
-            $topics->judul=$request->field_name;
+            $topics->judul=$request->field_name[$i];
             $topics->meeting_id=$meetings->id;
             $topics->save();
         }
 
-        if($request->hasfile('filenames'))
+        $data;
+        if($request->hasfile('lampiran'))
          {
-            foreach($request->file('filenames') as $file)
+            foreach($request->file('lampiran') as $file)
             {
                 $name = time().'.'.$file->extension();
                 $file->move(public_path().'/files/', $name);  
                 $data[] = $name;  
             }
          }
+         for($i=0; $i<count($data);$i++){
+            $file= new Attachments();
+            $file->Path=$data[$i];
+            $file->meetings_id=$meetings->id;
+            $file->save();
+        }
 
+         
 
-         $file= new File();
-         $file->filenames=json_encode($data);
-         $file->save();
+         return $this->hasilRapat();
     }
     public function detailRapat($id)
     {
         if (!$meetings = DB::table('meetings')->find($id)) {
             abort(404);
         } 
-        $meetings = DB::table('meetings')->find($id);
+        $meetings = DB::table('meetings')->where('meetings.id', $id)->first();
+        $lampiran = DB::table('attachments')->join('meetings', 'meetings.id','=','attachments.meetings_id')
+        ->where('meetings.id', $id)->get();
+        $topik = DB::table('topics')->join('meetings', 'meetings.id','=','topics.meetings_id')
+        ->where('meetings.id', $id)->get();
+        
 
-        return view('v_hasilrapatdetail', ['meetings' => $meetings]);
+        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans'=>$lampiran]);
     }
 
     public function deleteRapat($id)

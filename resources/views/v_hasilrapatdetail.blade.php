@@ -60,17 +60,6 @@
                       <h4>Usulan</h4>
                       <!-- /.user-block -->
                       <p>
-                        HER : Mata Kuliah mana yang akan di blok? Satu MK sulit tidak di combine dengan yang sulit jg-> dirumuskan MK apa yang cocok digabungkan
-                        IFY  : Rencana mahasiswa baru akan melalukan perkuliahan di kampus sehingga pendidikan karakter
-                        TNT : Diploma sistem paket, ada pre-requisite, kurikulum 2019 tidak mengakomodir pergeseran MK, kecuali transisi sudah di akomodir. Setuju untuk sistem blok, apakah 2 minggu cukup untuk 2 minggu, misalnya?
-                        Slide bertentangan, di minta video ajar tapi berbasis teks -> kita tidak bisa mengandalkan hanya video saja, jika ada yang berbasis teks untuk mengakomodir forum diskusi atau pertanyaan
-                        TMP  : Sistem blok hanya tugas dan ujian nya saja yang digabungkan?-> Ya, terkait simplifikasi tugas misalnya Daspro dan Matdis, namun ini juga terkait penjadwalan MK. 1 minggu hanya 2 MK tertentu yang running dan minggu berikutnya MK lain
-                        MK Daspro padat, jadi selama 2 minggu mahasiswa harus mencerna semua materi,bukannya ini semakin terbebani?
-                        TNT   : MK yang tidak ada korelasi, seperti apa penggabungannya? Penjadwalan juga membutuhkan dukungan BAAK -> 3 hari ini diminta di prodi untuk dibahas strateginya.
-                        Memang sistem blok membuat fokus, hanya harusnya ada dukungan dari WR I, apakah langsung UTS?
-                        MK PAM dan PAP, mahasiswa mendesign UI kemudian aplikasi mobile nya, RPS yang berubah hanya Minggu I – Minggu 16, jika sistem blok maka di buat menjadi Hari I dan seterusnya
-                        TMP   : Pelaksanaan sistem blok ini hanya parsial,PBO bisa dikompatibel kan dengan MK lain, tapi hanya beberapa bagian saja
-                        MPR  : Untuk Bahasa Inggris, pembelajaran dipadatkan ke sistem blok akan menyulitkan karena pembelajaran bahasa efektif dilakukan continuous. Pelaksanaan MK Bahasa Inggris akan dilaksanakan secara regular-> mereka hanya memikirkan 1 atau 2 minggu ko
                       </p>
                     </div>
                 </div>
@@ -89,15 +78,12 @@
 
               <h5 class="mt-5 text-muted">Files</h5>
               <ul class="list-unstyled">
+                <?php $i=1;?>
+                @foreach ($lampirans as $data)
                 <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Absensi.png</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Absensi.png</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Absensi.png</a>
-                </li>
+                  <a taget="_blank" rel="noopener noreferrer" href="{{ url('files/'.$data->Path) }}" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Lampiran {{ $i++ }}</a>
+                </li>                  
+                @endforeach
               </ul>
               <div class="text-center mt-5 mb-3">
                 <a href="#" class="btn btn-sm btn-primary">Add files</a>

@@ -18,15 +18,15 @@
         <div class="card-body">
           <div class="form-group">
             <label for="judul">Judul</label>
-            <input type="textarea" name="judul" id="judul" class="form-control">
+            <input type="textarea" name="judul" id="judul" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
-            <input type="date" name="tanggal" id="tanggal" class="form-control">
+            <input type="date" name="tanggal" id="tanggal" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="mulai">Mulai</label>
-            <input type="time" name="mulai" id="mulai" class="form-control">
+            <input type="time" name="mulai" id="mulai" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="berakhir">Berakhir</label>
@@ -34,7 +34,7 @@
           </div>
           <div class="form-group">
             <label for="tempat">Tempat</label>
-            <input type="text" name="tempat"id="tempat" class="form-control">
+            <input type="text" name="tempat"id="tempat" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="notulen">Notulen</label>
@@ -65,7 +65,7 @@
           <div class="field_wrapper form-group">
             <label for="judul">Topik</label>
             <div style=" display:flex;">
-              <input type="text" id="judul1" name="field_name[]" class="form-control nn"><br>
+              <input type="text" id="judul1" name="field_name[]" class="form-control nn" required><br>
               <a href="javascript:void(0);" class="add_button btn btn-primary" title="Add field" style="flex:1;">+</a>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <label for="exampleInputFile">Lampiran</label>
             <div class="input-group">
               <div class="custom-file">
-                <input name="lampiran" type="file" class="custom-file-input" id="exampleInputFile" multiple>
+                <input name="lampiran[]" type="file" class="custom-file-input" id="exampleInputFile" multiple>
                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
               </div>
             </div>

@@ -37,32 +37,35 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-12">
-                  <h4>1.	Membicarakan strategi Pembelajaran PJJ Ganjil 2020/2021 (Terlampir draft strategi dalam bentuk PPT dari WR 1) - IFY</h4>
-                    <div class="post">
-                      <h4>Tanggapan</h4>
-                      <!-- /.user-block -->
-                      <p>
-                        HER : Mata Kuliah mana yang akan di blok? Satu MK sulit tidak di combine dengan yang sulit jg-> dirumuskan MK apa yang cocok digabungkan
-                        IFY  : Rencana mahasiswa baru akan melalukan perkuliahan di kampus sehingga pendidikan karakter
-                        TNT : Diploma sistem paket, ada pre-requisite, kurikulum 2019 tidak mengakomodir pergeseran MK, kecuali transisi sudah di akomodir. Setuju untuk sistem blok, apakah 2 minggu cukup untuk 2 minggu, misalnya?
-                        Slide bertentangan, di minta video ajar tapi berbasis teks -> kita tidak bisa mengandalkan hanya video saja, jika ada yang berbasis teks untuk mengakomodir forum diskusi atau pertanyaan
-                        TMP  : Sistem blok hanya tugas dan ujian nya saja yang digabungkan?-> Ya, terkait simplifikasi tugas misalnya Daspro dan Matdis, namun ini juga terkait penjadwalan MK. 1 minggu hanya 2 MK tertentu yang running dan minggu berikutnya MK lain
-                        MK Daspro padat, jadi selama 2 minggu mahasiswa harus mencerna semua materi,bukannya ini semakin terbebani?
-                        TNT   : MK yang tidak ada korelasi, seperti apa penggabungannya? Penjadwalan juga membutuhkan dukungan BAAK -> 3 hari ini diminta di prodi untuk dibahas strateginya.
-                        Memang sistem blok membuat fokus, hanya harusnya ada dukungan dari WR I, apakah langsung UTS?
-                        MK PAM dan PAP, mahasiswa mendesign UI kemudian aplikasi mobile nya, RPS yang berubah hanya Minggu I – Minggu 16, jika sistem blok maka di buat menjadi Hari I dan seterusnya
-                        TMP   : Pelaksanaan sistem blok ini hanya parsial,PBO bisa dikompatibel kan dengan MK lain, tapi hanya beberapa bagian saja
-                        MPR  : Untuk Bahasa Inggris, pembelajaran dipadatkan ke sistem blok akan menyulitkan karena pembelajaran bahasa efektif dilakukan continuous. Pelaksanaan MK Bahasa Inggris akan dilaksanakan secara regular-> mereka hanya memikirkan 1 atau 2 minggu ko
-                      </p>
-                    </div>
-                    <div class="post">
-                      <h4>Usulan</h4>
-                      <!-- /.user-block -->
-                      <p>
-                      </p>
+                @foreach ($topik as $topics)
+                <div class="col-12" id="accordion">
+                    <div class="card card-primary card-outline">
+                        <a class="d-block w-100" data-toggle="collapse" href="#collapseTwo">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    {{ $topics->judul }}
+                                </h4>
+                            </div>
+                        </a>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="post">
+                                  <h6>Tanggapan</h6>
+                                </div>
+                                <div class="post">
+                                  <h6>Usulan</h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                @endforeach
+            </div>
+              <div class="row">
+                @foreach($topik as $data)
+                <div class="col-12">
+                </div>
+                @endforeach
               </div>              
             </div>
             
@@ -72,7 +75,7 @@
                   <b class="d-block">{{ $meetings->leader }}</b>
                 </p>
                 <p class="text-sm">Notulen
-                  <b class="d-block">{{ $meetings->minuter }}</b>
+                  <b class="d-block">{{ $notulen->name }}</b>
                 </p>
               </div>
 

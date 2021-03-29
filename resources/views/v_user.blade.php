@@ -138,9 +138,9 @@
 
               <div class="col-md-6">
                   <select id="role" name="role" class="form-control">
-                    <option>Admin</option>
-                    <option>Kepala Prodi</option>
-                    <option>Dosen</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Kepala Prodi</option>
+                    <option value="3">Dosen</option>
                   </select>
               </div>
           </div>

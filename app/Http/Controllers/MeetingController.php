@@ -74,11 +74,11 @@ class MeetingController extends Controller
         $meetings = DB::table('meetings')->where('meetings.id', $id)->first();
         $lampiran = DB::table('attachments')->join('meetings', 'meetings.id','=','attachments.meetings_id')
         ->where('meetings.id', $id)->get();
-        $topik = DB::table('topics')->join('meetings', 'meetings.id','=','topics.meetings_id')
+        $topik = DB::table('topics')->join('meetings', 'meetings.id','=','topics.meeting_id')
         ->where('meetings.id', $id)->get();
-        
+        $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();  
 
-        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans'=>$lampiran]);
+        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans'=>$lampiran, 'topik'=>$topik, 'notulen'=>$notulens]);
     }
 
     public function deleteRapat($id)
@@ -87,8 +87,7 @@ class MeetingController extends Controller
             abort(404);
         } 
         DB::table('meetings')->delete($id);
-        $meetings = DB::table('meetings')->get();
 
-        return view('v_hasilrapat', ['meetings' => $meetings]);
+        return $this->hasilRapat();
     }
 }

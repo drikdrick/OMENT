@@ -12,7 +12,6 @@
           <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-default">
             <i class="far fa-plus-square nav-icon"></i> Add User
           </button>
-          <!-- /.card-header -->
           <div class="card-body">
             <table id="example1" class="table table-striped">
               <thead>
@@ -67,13 +66,9 @@
               </tbody>
             </table>
           </div>
-          <!-- /.card-body -->
         </div>
-        <!-- /.card -->
       </div>
-      <!-- /.col -->
     </div>
-    <!-- /.row -->
   </div>
 
   <div class="modal fade" id="modal-default">
@@ -138,11 +133,17 @@
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                 </div>
             </div>
+            <div class="form-group row">
+              <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
 
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                </div>
-            </div>
+              <div class="col-md-6">
+                  <select id="role" name="role" class="form-control">
+                    <option>Admin</option>
+                    <option>Kepala Prodi</option>
+                    <option>Dosen</option>
+                  </select>
+              </div>
+          </div>
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
@@ -152,9 +153,6 @@
         </div>
       </form>
       </div>
-      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
   </div>
-  <!-- /.container-fluid -->
 @endsection

@@ -70,7 +70,7 @@
           </li>
           <!-- Menu Footer-->
           <li class="user-footer">
-              <a href="#" class="btn btn-default btn-flat float-left">Profile</a>
+              <a href="/userdetail/{{ Auth::user()->id }}" class="btn btn-default btn-flat float-left">Profile</a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-default btn-flat float-right">Log out</button>
@@ -241,7 +241,7 @@
     var maxField = 8; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div style="padding-top:5px; display:flex;"><input type="text" id="judul" name="field_name[]" class="form-control" style="flex:1;"><a href="javascript:void(0);" class="remove_button btn btn-danger">X</a></div>';
+    var fieldHTML = '<div style="padding-top:5px; display:flex;"><input type="text" id="judul1" name="field_name[]" class="form-control nn" style="flex:1;"><a href="javascript:void(0);" class="remove_button btn btn-danger">X</a></div>';
     var x = 1; //Initial field counter is 1
     
     //Once add button is clicked
@@ -260,7 +260,35 @@
         x--; //Decrement field counter
     });
 });
-</script>
+function getData() {
+  var l = $('.nn').length;
+  //Initialize default array
+  var result = [];
+  for (i = 0; i < l; i++) { 
+    //Push each element to the array
+    result.push($('.nn').eq(i).val());
+  }
+  return result;
+}
+
+function saveData() {
+  var judul = document.getElementById("judul").value;
+  var tanggal = document.getElementById("tanggal").value;
+  var mulai = document.getElementById("mulai").value;
+  var berakhir = document.getElementById("berakhir").value;
+  var tempat = document.getElementById("tempat").value;
+  var notulen = document.getElementById("notulen").value;
+  var topik = getData();
+  $.ajax({
+    type: "POST",
+    url: '/storeresearch',
+    data: {selectedMembers: arr},
+    success: function( msg ) {
+      console.log(msg);
+    }
+  });
+}
+</script> 
 </body>
 </html>
 

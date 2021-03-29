@@ -22,6 +22,8 @@ Route::get('/meeting/buatrapat', [MeetingController::class, 'buatRapat']);
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
 Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailRapat'] );
 Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
+Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );
+
 
 Route::view('/jadwal', 'v_jadwal');
 Route::view('/dashboard', 'v_dashboard');

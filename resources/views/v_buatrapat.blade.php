@@ -2,7 +2,9 @@
 
 @section('title', 'Buat Rapat')
 @section('content')
-<div class="row">
+<form action="/buat-rapat" method="POST" enctype="multipart/form-data">
+  @csrf
+  <div class="row">
     <div class="col-md-6">
       <div class="card card-primary">
         <div class="card-header">
@@ -16,23 +18,23 @@
         <div class="card-body">
           <div class="form-group">
             <label for="judul">Judul</label>
-            <input type="textarea" id="judul" class="form-control">
+            <input type="textarea" name="judul" id="judul" class="form-control">
           </div>
           <div class="form-group">
             <label for="tanggal">Tanggal</label>
-            <input type="date" id="tanggal" class="form-control">
+            <input type="date" name="tanggal" id="tanggal" class="form-control">
           </div>
           <div class="form-group">
             <label for="mulai">Mulai</label>
-            <input type="time" id="mulai" class="form-control">
+            <input type="time" name="mulai" id="mulai" class="form-control">
           </div>
           <div class="form-group">
             <label for="berakhir">Berakhir</label>
-            <input type="time" id="berakhir" class="form-control">
+            <input type="time" name="berakhir" id="berakhir" class="form-control">
           </div>
           <div class="form-group">
             <label for="tempat">Tempat</label>
-            <input type="text" id="tempat" class="form-control">
+            <input type="text" name="tempat"id="tempat" class="form-control">
           </div>
           <div class="form-group">
             <label for="notulen">Notulen</label>
@@ -63,7 +65,7 @@
           <div class="field_wrapper form-group">
             <label for="judul">Topik</label>
             <div style=" display:flex;">
-              <input type="text" id="judul" name="field_name[]" class="form-control"><br>
+              <input type="text" id="judul1" name="field_name[]" class="form-control nn"><br>
               <a href="javascript:void(0);" class="add_button btn btn-primary" title="Add field" style="flex:1;">+</a>
             </div>
           </div>
@@ -73,7 +75,7 @@
             <label for="exampleInputFile">Lampiran</label>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile" multiple>
+                <input name="lampiran" type="file" class="custom-file-input" id="exampleInputFile" multiple>
                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
               </div>
             </div>
@@ -90,4 +92,5 @@
       <input type="submit" value="Create Meeting" class="btn btn-success btn-block">
     </div>
   </div>
-@endsection
+</form>
+  @endsection

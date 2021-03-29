@@ -15,6 +15,9 @@ class CreateNotesTable extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id')->constrained('users');
+            $table->foreignId('meetings_id')->constrained('meetings')->nullable();
+            $table->text('isi');
             $table->timestamps();
         });
     }

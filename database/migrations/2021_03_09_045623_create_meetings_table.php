@@ -18,12 +18,12 @@ class CreateMeetingsTable extends Migration
             $table->string('title');
             $table->date('tanggal');
             $table->time('waktu_mulai', $precision = 0);
-            $table->time('waktu_akhir', $precision = 0);
+            $table->time('waktu_akhir', $precision = 0)->nullable;
             $table->string('place');
             $table->string('leader');
-            $table->string('minuter');
-            $table->timestamp('created_at')->nullable();
-            $table->number('created_by');
+            $table->foreignId('minuter')->constrained('users');
+            $table->integer('created_by');
+            $table->timestamps();
         });
     }
 

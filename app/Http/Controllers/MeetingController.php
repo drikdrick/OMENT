@@ -19,7 +19,7 @@ class MeetingController extends Controller
     }
 
     public function buatRapat(){
-        $users=DB::table('users')->get();
+        $users=DB::table('users')->where('role', '3')->get();
         return view('v_buatrapat', ['users' => $users]);
     }
 

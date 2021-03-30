@@ -6,7 +6,6 @@ use App\Models\Meeting;
 use App\Models\Topics;
 use App\Models\Attachments;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
 
 class MeetingController extends Controller
@@ -95,6 +94,15 @@ class MeetingController extends Controller
 
         $meetings = DB::table('meetings')->where('meetings.id',$id)->first();
         $users=DB::table('users')->where('role', '3')->get();
+        $topik = DB::table('topics')->join('meetings', 'meetings.id','=','topics.meeting_id')
+        ->where('meetings.id', $id)->get();
         return view('v_editrapat', ['meetings'=>$meetings, 'users'=>$users]);
+    }
+
+    public function updateRapat(Request $request, Meetings $meetings)
+    {
+        $meetings->update($request->all());
+
+        return redirect()->route($this->hasilRapat());
     }
 }

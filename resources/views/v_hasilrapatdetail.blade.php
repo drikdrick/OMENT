@@ -130,8 +130,10 @@
                       <th style="width: 8%" class="text-center">
                           Status
                       </th>
+                      @if (auth()->user()->role!=3)
                       <th style="width: 20%">
                       </th>
+                      @endif
                   </tr>
               </thead>
               <tbody>
@@ -157,6 +159,7 @@
                       <td class="project-state">
                           <span class="badge badge-success">Success</span>
                       </td>
+                      @if (auth()->user()->role!=3)
                       <td class="project-actions text-right">
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">
@@ -169,6 +172,7 @@
                               Delete
                           </a>
                       </td>
+                      @endif
                   </tr>
               </tbody>
           </table>

@@ -23,6 +23,7 @@ Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
 Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailRapat'] );
 Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );
 Route::get('/meeting/edit/{id}',[MeetingController::class, 'editRapat'] );
+Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
 
 

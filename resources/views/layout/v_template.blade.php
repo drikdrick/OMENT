@@ -36,15 +36,10 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
+          <span class="dropdown-item dropdown-header">3 Notifications</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> 3 new reports
@@ -137,16 +132,18 @@
               </p>
             </a>
           </li>
+          @if (auth()->user()->role<=2)
           <li class="nav-item">
             <a href="/meeting/buatrapat" class="nav-link {{ request()->is('meeting/buatrapat') ? 'active' : '' }}">
               <i class="far fa-plus-square nav-icon"></i>
               <p>Buat Rapat</p>
             </a>
           </li>
+          @endif
           <li class="nav-item">
             <a href="/meeting/hasil" class="nav-link {{ request()->is('meeting/hasil') ? 'active' : '' }}">
               <i class="far fas fa-search nav-icon"></i>
-              <p>Hasil Rapat</p>
+              <p>Rapat</p>
             </a>
           </li>
           <li class="nav-item">

@@ -63,7 +63,7 @@
                             </i>
                             Edit
                         </a>
-                        @if (auth()->user()->role==1)
+                        @if (auth()->user()->role<=2)
                         <a class="btn btn-danger btn-sm swalDefaultSuccess" href="/meeting/deleteRapat/{{ $item->id }}">
                             <i class="fas fa-trash">
                             </i>

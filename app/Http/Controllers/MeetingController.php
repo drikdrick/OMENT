@@ -17,7 +17,7 @@ class MeetingController extends Controller
     }
 
     public function hasilRapat()
-    {
+    {   
         $meetings = DB::table('meetings')->get();
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
@@ -60,9 +60,6 @@ class MeetingController extends Controller
             $file->meetings_id=$meetings->id;
             $file->save();
         }
-
-         
-
          return $this->hasilRapat();
     }
     public function detailRapat($id)
@@ -97,7 +94,7 @@ class MeetingController extends Controller
         }
 
         $meetings = DB::table('meetings')->where('meetings.id',$id)->first();
-
-        return view('v_editrapat', ['meetings'=>$meetings]);
+        $users=DB::table('users')->where('role', '3')->get();
+        return view('v_editrapat', ['meetings'=>$meetings, 'users'=>$users]);
     }
 }

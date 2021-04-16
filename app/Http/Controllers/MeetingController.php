@@ -27,6 +27,7 @@ class MeetingController extends Controller
     }
     public function createRapat(Request $request){
         $users=DB::table('users')->where('role', '2')->first();
+        $meetings = new Meeting();
         $meetings->title=$request->judul;
         $meetings->tanggal=$request->tanggal;
         $meetings->waktu_mulai=$request->mulai;

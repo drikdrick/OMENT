@@ -39,7 +39,7 @@
                       {{ $data->email }}
                     </td>
                     <td>
-                      {{ $data->role }}
+                      {{ $data->nama }}
                     </td>
                     <td class="text-center">
                       <img src="{{ url('foto/'.$data->foto) }}" width="50px" class="table-avatar">

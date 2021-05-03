@@ -72,10 +72,14 @@
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
               <div class="text-muted">
                 <p class="text-sm">Project Leader
+                  <a href="/userdetail/4">
                   <b class="d-block">{{ $meetings->leader }}</b>
+                  </a>
                 </p>
                 <p class="text-sm">Notulen
+                  <a href="/userdetail/{{ $meetings->minuter }}">
                   <b class="d-block">{{ $notulen->name }}</b>
+                  </a>
                 </p>
               </div>
 

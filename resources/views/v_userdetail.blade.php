@@ -19,7 +19,7 @@
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Roles</h5>
-              <span class="description-text">Admin</span>
+              <span class="description-text">{{ $roles->nama }}</span>
             </div>
             <!-- /.description-block -->
           </div>

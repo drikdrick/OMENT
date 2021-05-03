@@ -25,8 +25,10 @@ class UserController extends Controller
             abort(404);
         } 
         $user = DB::table('users')->find($id);
+        $role = DB::table('roles')->join('users', 'users.role','=','roles.id')
+        ->where('users.id', $id)->get();
 
-        return view('v_userdetail', ['users' => $user]);
+        return view('v_userdetail', ['users' => $user, 'roles'=> $role]);
     }
 
     public function delete($id)

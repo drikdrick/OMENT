@@ -25,10 +25,10 @@ class UserController extends Controller
             abort(404);
         } 
         $user = DB::table('users')->find($id);
-        $role = DB::table('roles')->join('users', 'users.role','=','roles.id')
-        ->where('users.id', $id)->get();
+        $role = DB::table('roles')->where('roles.id','=', $user->role)->first();
+        $meeting = DB::table('meetings')->where('meetings.minuter', '=', $user->id)->get();
 
-        return view('v_userdetail', ['users' => $user, 'roles'=> $role]);
+        return view('v_userdetail', ['users' => $user, 'roles'=> $role, 'meetings'=>$meeting]);
     }
 
     public function delete($id)

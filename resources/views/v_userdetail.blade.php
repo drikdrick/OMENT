@@ -3,7 +3,7 @@
 @section('title', 'User Detail')
 @section('content')
 <a href="/user" class="btn btn-sm">Back</a>
-<div class="col-md-4">
+<div>
     <!-- Widget: user widget style 1 -->
     <div class="card card-widget widget-user">
       <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -45,5 +45,53 @@
       </div>
     </div>
     <!-- /.widget-user -->
+  </div>
+  <div class="card">
+    <div class="card-body p-0">
+      <table id="example1" class="table table-striped">
+          <thead>
+              <tr>
+                  <th style="width: 1%" >
+                      No
+                  </th>
+                  <th>
+                      Title
+                  </th>
+                  <th>
+                      Tanggal
+                  </th>
+                  <th>
+                      Waktu
+                  </th>
+                  <th>
+                      Tempat
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+            <?php $no=1; ?>
+            @foreach ($meetings as $item)
+            <tr>
+                <td class="text-center">
+                  {{ $no++ }}
+                </td>
+                <td>
+                    {{ $item->title }}
+                </td>
+                <td>
+                    {{ $item->tanggal }}
+                </td>
+                <td>
+                    {{ $item->waktu_mulai }}
+                </td>
+                <td>
+                    {{ $item->place }}
+                </td>
+            </tr>
+            @endforeach
+          </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
   </div>
 @endsection

@@ -101,7 +101,7 @@ class MeetingController extends Controller
         return view('v_editrapat', ['meetings' => $meetings, 'users' => $users]);
     }
 
-    public function updateRapat(Request $request, Meetings $meetings)
+    public function updateRapat(Request $request, Meeting $meetings)
     {
         $meetings->update($request->all());
 

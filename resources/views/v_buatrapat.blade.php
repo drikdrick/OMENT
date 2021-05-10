@@ -41,7 +41,7 @@
                             <select id="notulen" name="notulen" class="form-control">
                                 @foreach ($users as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @esndforeach
+                                    @endforeach
                             </select>
                         </div>
                     </div>

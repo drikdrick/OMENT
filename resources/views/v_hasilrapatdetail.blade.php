@@ -41,28 +41,28 @@
                     </div>
                     <div class="row">
                         @foreach ($topik as $topics)
-                            <div class="col-12" id="accordion">
-                                <div class="card card-primary card-outline">
-                                    <a class="d-block w-100" data-toggle="collapse" href="#collapseTwo">
-                                        <div class="card-header">
-                                            <h4 class="card-title w-100">
-                                                {{ $topics->judul }}
-                                            </h4>
+                        <div class="col-12" id="accordion">
+                            <div class="card card-primary card-outline">
+                                <a class="d-block w-100" data-toggle="collapse" href="#collapseOne{{ $topics->id }}">
+                                    <div class="card-header">
+                                        <h4 class="card-title w-100">
+                                            {{ $topics->judul }}
+                                        </h4>
+                                    </div>
+                                </a>
+                                <div id="collapseOne{{ $topics->id }}" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="post">
+                                            <h6>Tanggapan</h6>
                                         </div>
-                                    </a>
-                                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <div class="post">
-                                                <h6>Tanggapan</h6>
-                                            </div>
-                                            <div class="post">
-                                                <h6>Usulan</h6>
-                                            </div>
+                                        <div class="post">
+                                            <h6>Usulan</h6>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            </div>                              
+                       </div>
+                       @endforeach  
                     </div>
                 </div>
 

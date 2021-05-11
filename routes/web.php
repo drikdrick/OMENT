@@ -30,7 +30,6 @@ Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
 
 
 Route::view('/jadwal', 'v_jadwal');
-Route::view('/dashboard', 'v_dashboard');
 Route::view('/absen', 'v_absen');
 
 Auth::routes();

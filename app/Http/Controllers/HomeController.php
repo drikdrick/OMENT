@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('v_dashboard');
+        $id = session()->getId();
+        return view('v_dashboard',['id'=>$id]);
     }
 }

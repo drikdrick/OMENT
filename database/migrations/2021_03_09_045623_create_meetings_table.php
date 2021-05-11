@@ -20,7 +20,7 @@ class CreateMeetingsTable extends Migration
             $table->time('waktu_mulai', $precision = 0);
             $table->time('waktu_akhir', $precision = 0)->nullable;
             $table->string('place');
-            $table->string('leader');
+            $table->foreignId('leader')->constrained('users');
             $table->foreignId('minuter')->constrained('users');
             $table->integer('created_by');
             $table->timestamps();

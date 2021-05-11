@@ -16,7 +16,7 @@ class CreateAbsencesTable extends Migration
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->constrained('users');
-            $table->foreignId('meetings_id')->constrained('meetings');
+            $table->foreignId('meetings_id')->constrained('meetings')->onDelete('cascade');
             $table->boolean('respon')->nullable();
             $table->boolean('absen')->nullable();
             $table->integer('update_by')->nullable();

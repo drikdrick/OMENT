@@ -19,7 +19,7 @@ class CreateFollowingsTable extends Migration
             $table->string('pic');
             $table->boolean('selesai');
             $table->string('keterangan');
-            $table->foreignId('meetings_id')->constrained('meetings');
+            $table->foreignId('meetings_id')->constrained('meetings')->onDelete('cascade');
             $table->timestamps();
         });
     }

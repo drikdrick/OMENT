@@ -16,7 +16,7 @@ class CreateAttachmentsTable extends Migration
         Schema::create('attachments', function (Blueprint $table) {
             $table->id();
             $table->string('Path');
-            $table->foreignId('meetings_id')->constrained('meetings');
+            $table->foreignId('meetings_id')->constrained('meetings')->onDelete('cascade');
             $table->timestamps();
         });
     }

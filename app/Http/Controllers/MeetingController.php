@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Meeting;
 use App\Models\Topics;
 use App\Models\Attachments;
+use App\Models\Absence;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,10 @@ class MeetingController extends Controller
 
     public function hasilRapat()
     {
-        $meetings = DB::table('meetings')->join('users', 'meetings.minuter', '=', 'users.id')->get();
+        $meetings = DB::table('meetings')
+        ->join('users', 'meetings.minuter', '=', 'users.id')
+        ->select('meetings.*', 'users.name')
+        ->get();
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
 
@@ -29,14 +33,15 @@ class MeetingController extends Controller
     }
     public function createRapat(Request $request)
     {
-        $users = DB::table('users')->where('role', '2')->first();
+        $kaprodi = DB::table('users')->where('role', '2')->first();
+        $users = DB::table('users')->where('role', '!=', '1')->get();
         $meetings = new Meeting();
         $meetings->title = $request->judul;
         $meetings->tanggal = $request->tanggal;
         $meetings->waktu_mulai = $request->mulai;
         $meetings->waktu_akhir = $request->berakhir;
         $meetings->place = $request->tempat;
-        $meetings->leader = $users->name;
+        $meetings->leader = $kaprodi->id;
         $meetings->minuter = $request->notulen;
         $meetings->created_by = Auth::user()->id;
         $meetings->save();
@@ -47,19 +52,27 @@ class MeetingController extends Controller
             $topics->save();
         }
 
-        $data;
         if ($request->hasfile('lampiran')) {
+            $data;
             foreach ($request->file('lampiran') as $file) {
                 $name = time() . '.' . $file->extension();
                 $file->move(public_path() . '/files/', $name);
                 $data[] = $name;
             }
+            for ($i = 0; $i < count($data); $i++) {
+                $file = new Attachments();
+                $file->Path = $data[$i];
+                $file->meetings_id = $meetings->id;
+                $file->save();
+            }
         }
-        for ($i = 0; $i < count($data); $i++) {
-            $file = new Attachments();
-            $file->Path = $data[$i];
-            $file->meetings_id = $meetings->id;
-            $file->save();
+        
+
+        foreach ($users as $item) {
+            $absence = new Absence();
+            $absence->users_id=$item->id;
+            $absence->meetings_id=$meetings->id;
+            $absence->save();
         }
         return $this->hasilRapat();
     }
@@ -74,8 +87,9 @@ class MeetingController extends Controller
         $topik = DB::table('topics')->join('meetings', 'meetings.id', '=', 'topics.meeting_id')
             ->where('meetings.id', $id)->get();
         $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();
+        $leaders = DB::table('users')->where('users.id', $meetings->leader)->first();
 
-        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens]);
+        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders]);
     }
 
     public function deleteRapat($id)
@@ -106,5 +120,9 @@ class MeetingController extends Controller
         $meetings->update($request->all());
 
         return redirect()->route($this->hasilRapat());
+    }
+
+    public function anggotaRapat(){
+
     }
 }

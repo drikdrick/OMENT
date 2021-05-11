@@ -16,7 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->foreignId('meeting_id')->constrained('meetings');
+            $table->foreignId('meeting_id')->constrained('meetings')->onDelete('cascade');
             $table->timestamps();
         });
     }

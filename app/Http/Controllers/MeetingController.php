@@ -66,7 +66,6 @@ class MeetingController extends Controller
                 $file->save();
             }
         }
-        
 
         foreach ($users as $item) {
             $absence = new Absence();
@@ -122,7 +121,14 @@ class MeetingController extends Controller
         return redirect()->route($this->hasilRapat());
     }
 
-    public function anggotaRapat(){
+    public function anggotaRapat($id){
+        $anggota = DB::table('absences')
+        ->join('users', 'absences.users_id', '=', 'users.id')
+        ->join('meetings', 'absences.meetings_id', '=', 'meetings.id')
+        ->select('absences.*', 'users.name', 'meetings.title', 'meetings.tanggal', 'meetings.waktu_mulai')
+        ->where('absences.meetings_id', $id)
+        ->get();
 
+        return view('v_anggotaRapat', ['anggota'=>$anggota]);
     }
 }

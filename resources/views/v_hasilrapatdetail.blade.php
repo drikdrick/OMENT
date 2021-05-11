@@ -79,7 +79,7 @@
                             </a>
                         </p>
                         <p class="text-sm">
-                            <a href="/userdetail/{{ $meetings->minuter }}">
+                            <a href="/meeting/anggota/{{ $meetings->id }}">
                                 <b class="d-block">Anggota Rapat</b>
                             </a>
                         </p>

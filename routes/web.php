@@ -19,7 +19,7 @@ use App\Http\Controllers\MeetingController;
 Route::get('/',[HomeController::class, 'index'] );
 
 Route::get('/meeting/buatrapat', [MeetingController::class, 'buatRapat']);
-Route::get('/meeting/anggota', [MeetingController::class, 'anggotaRapat']);
+Route::get('/meeting/anggota/{id}', [MeetingController::class, 'anggotaRapat']);
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
 Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailRapat'] );
 Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );

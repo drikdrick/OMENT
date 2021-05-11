@@ -11,19 +11,19 @@
                         <th style="width: 1%">
                             No
                         </th>
-                        <th style="width: 40%">
+                        <th style="width: 30%">
                             Title
                         </th>
-                        <th style="width: 10%">
+                        <th style="width: 10%" class="text-center">
                             Tanggal
                         </th>
-                        <th style="width: 10%">
+                        <th style="width: 10%" class="text-center">
                             Waktu
                         </th>
                         <th>
                             Tempat
                         </th>
-                        <th style="width: 10%" class="text-center">
+                        <th style="width: 20%" class="text-center">
                             Notulen
                         </th>
                         <th style="width: 20%">
@@ -40,17 +40,17 @@
                             <td>
                                 {{ $item->title }}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 {{ $item->tanggal }}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 {{ $item->waktu_mulai }}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 {{ $item->place }}
                             </td>
-                            <td class="project-state">
-                                {{ $item->minuter }}
+                            <td class="text-center">
+                                {{ $item->name }}
                             </td>
                             <td class="project-actions text-right">
                                 <a class="btn btn-primary btn-sm" href="/meeting/hasil/{{ $item->id }}">

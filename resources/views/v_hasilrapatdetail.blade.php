@@ -62,7 +62,7 @@
                                 </div>
                             </div>                              
                        </div>
-                       @endforeach  
+                       @endforeach
                     </div>
                 </div>
 
@@ -76,6 +76,11 @@
                         <p class="text-sm">Notulen
                             <a href="/userdetail/{{ $meetings->minuter }}">
                                 <b class="d-block">{{ $notulen->name }}</b>
+                            </a>
+                        </p>
+                        <p class="text-sm">
+                            <a href="/userdetail/{{ $meetings->minuter }}">
+                                <b class="d-block">Anggota Rapat</b>
                             </a>
                         </p>
                     </div>

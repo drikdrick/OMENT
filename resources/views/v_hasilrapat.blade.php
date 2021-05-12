@@ -2,7 +2,6 @@
 
 @section('title', 'Hasil Rapat')
 @section('content')
-    <!-- Default box -->
     <div class="card">
         <div class="card-body p-0">
             <table id="example1" class="table table-striped projects">
@@ -77,7 +76,5 @@
                 </tbody>
             </table>
         </div>
-        <!-- /.card-body -->
     </div>
-    <!-- /.card -->
 @endsection

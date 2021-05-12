@@ -54,9 +54,7 @@
                             </select>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
 
             <div class="col-md-6">
@@ -92,9 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
         </div>
         <div class="row">

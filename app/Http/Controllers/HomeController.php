@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $id = session()->getId();
-        return view('v_dashboard',['id'=>$id]);
+        $absensi = DB::table('absences')
+        ->where('users_id', auth()->user()->id)
+        ->where('respon', NULL)
+        ->get();
+        return view('v_dashboard',['undangan'=>$absensi]);
     }
 }

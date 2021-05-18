@@ -26,6 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $absensi = DB::table('absences')
+        ->join('meetings', 'absences.meetings_id', '=', 'meetings.id')
+        ->select('absences.*', 'meetings.title', 'meetings.tanggal', 'meetings.waktu_mulai')
         ->where('users_id', Auth::user()->id)
         ->where('respon', NULL)
         ->get();

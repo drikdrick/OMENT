@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $absensi = DB::table('absences')
-        ->where('users_id', auth()->user()->id)
+        ->where('users_id', Auth::user()->id)
         ->where('respon', NULL)
         ->get();
         return view('v_dashboard',['undangan'=>$absensi]);

@@ -27,10 +27,20 @@ class HomeController extends Controller
     {
         $absensi = DB::table('absences')
         ->join('meetings', 'absences.meetings_id', '=', 'meetings.id')
-        ->select('absences.*', 'meetings.title', 'meetings.tanggal', 'meetings.waktu_mulai')
+        ->select('absences.*', 'meetings.title', 'meetings.tanggal', 'meetings.waktu_mulai', 'meetings.place')
         ->where('users_id', Auth::user()->id)
         ->where('respon', NULL)
         ->get();
         return view('v_dashboard',['undangan'=>$absensi]);
+    }
+
+    public function terimaUndangan($id){
+        $absensi->update(['absences.response' => 1]);
+
+        return redirect()->route($this->index());        
+    }
+
+    public function tolakUndagan(){
+
     }
 }

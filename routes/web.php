@@ -17,6 +17,7 @@ use App\Http\Controllers\MeetingController;
 
 
 Route::get('/',[HomeController::class, 'index'] );
+Route::get('/undangan/terimaUndangan/{id}', [HomeController::class, 'terimaUndangan']);
 
 Route::get('/meeting/buatrapat', [MeetingController::class, 'buatRapat']);
 Route::get('/meeting/anggota/{id}', [MeetingController::class, 'anggotaRapat']);
@@ -38,6 +39,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/user',[UserController::class, 'index'] );
-    Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
     Route::get('/delete/{id}',[UserController::class, 'delete'] ); 
 });

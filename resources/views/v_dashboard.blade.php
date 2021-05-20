@@ -39,7 +39,7 @@
                                                 <a class="btn btn-success btn-sm" href="/undangan/terimaUndangan/{{ $item->meetings_id }}">
                                                     <i class="fas fa-check"></i>
                                                 </a>
-                                                <a class="btn btn-danger btn-sm" href="">
+                                                <a class="btn btn-danger btn-sm" href="/undangan/tolakUndangan/{{ $item->meetings_id }}">
                                                     <i class="fas fa-ban"></i>
                                                 </a>
                                             </td>

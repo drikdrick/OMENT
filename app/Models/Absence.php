@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Absence extends Model
 {
+    use HasFactory;
     protected $table = 'absences';
     public $timestamps = true;
-    use HasFactory;
     protected $fillable = [
         'users_id',
         'meetings_id',

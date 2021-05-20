@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Absence;
 
 class HomeController extends Controller
 {
@@ -35,12 +36,20 @@ class HomeController extends Controller
     }
 
     public function terimaUndangan($id){
-        $absensi->update(['absences.response' => 1]);
+        $absensi = DB::table('absences')
+        ->where('users_id', Auth::user()->id)
+        ->where('meetings_id', $id)
+        ->update(['respon'=>1]);
 
-        return redirect()->route($this->index());        
+        return $this->index();        
     }
 
-    public function tolakUndagan(){
+    public function tolakUndangan($id){
+        $absensi = DB::table('absences')
+        ->where('users_id', Auth::user()->id)
+        ->where('meetings_id', $id)
+        ->update(['respon'=>0]);
 
+        return $this->index();    
     }
 }

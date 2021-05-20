@@ -11,7 +11,6 @@
                             <h5 class="m-0">Undangan Rapat</h5>
                         </div>
                         <div class="card-body">
-                            @if (!$undangan->isEmpty())
                                 <table class="table table-sm">
                                     <thead>
                                     <tr>
@@ -24,32 +23,37 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no=1;?>
-                                        @foreach ($undangan as $item)
+                                        @if (!$undangan->isEmpty())
+                                            <?php $no=1;?>
+                                            @foreach ($undangan as $item)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $item->title }}</td>
+                                                <td>{{ $item->tanggal }}</td>
+                                                <td>{{ $item->waktu_mulai }}</td>
+                                                <td>{{ $item->place }}</td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" href="/meeting/hasil/{{ $item->meetings_id }}">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a class="btn btn-success btn-sm" href="/undangan/terimaUndangan/{{ $item->meetings_id }}">
+                                                        <i class="fas fa-check"></i>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-sm" href="/undangan/tolakUndangan/{{ $item->meetings_id }}">
+                                                        <i class="fas fa-ban"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        @else
                                         <tr>
-                                            <td>{{ $no++ }}</td>
-                                            <td>{{ $item->title }}</td>
-                                            <td>{{ $item->tanggal }}</td>
-                                            <td>{{ $item->waktu_mulai }}</td>
-                                            <td>{{ $item->place }}</td>
-                                            <td>
-                                                <a class="btn btn-primary btn-sm" href="/meeting/hasil/{{ $item->meetings_id }}">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                                <a class="btn btn-success btn-sm" href="/undangan/terimaUndangan/{{ $item->meetings_id }}">
-                                                    <i class="fas fa-check"></i>
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" href="/undangan/tolakUndangan/{{ $item->meetings_id }}">
-                                                    <i class="fas fa-ban"></i>
-                                                </a>
-                                            </td>
+                                            <td colspan="6" class="text-center">
+                                                <h6>Tidak ada undangan terbaru.</h6>
+                                            </td>                                            
                                         </tr>
-                                        @endforeach                            
+                                        @endif                            
                                     </tbody>
                                 </table>
-                            @else
-                            <h6 class="card-title">Tidak ada undangan terbaru.</h6>
-                            @endif
                         </div>
                     </div>
                 </div>

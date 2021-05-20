@@ -1,4 +1,4 @@
-@extends('layout.v_template')
+@extends('layout.v_template2')
 
 @section('title', 'User Detail')
 @section('content')
@@ -18,24 +18,20 @@
         <div class="row">
           <div class="col-sm-4 border-right">
             <div class="description-block">
-              <h5 class="description-header">Roles</h5>
-              <span class="description-text">{{ $roles->nama }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <!-- /.col -->
           <div class="col-sm-4 border-right">
             <div class="description-block">
-              <h5 class="description-header">Created</h5>
-              <span class="description-text">{{ $users->created_at }}</span>
+              <h5 class="description-header">Jabatan</h5>
+              <span>{{ $roles->nama }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <!-- /.col -->
           <div class="col-sm-4">
             <div class="description-block">
-              <h5 class="description-header">Updated</h5>
-              <span class="description-text">{{ $users->updated_at  }}</span>
             </div>
             <!-- /.description-block -->
           </div>
@@ -50,6 +46,9 @@
     <div class="card-body p-0">
       <table id="example1" class="table table-striped">
           <thead>
+            <tr>
+              <th colspan="5" class="text-center"> Jadwal Notulen</th>
+            </tr>
               <tr>
                   <th style="width: 1%" >
                       No

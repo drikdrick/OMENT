@@ -85,6 +85,7 @@
                         </p>
                     </div>
 
+                    @if (!$lampirans->isEmpty())
                     <h5 class="mt-5 text-muted">Files</h5>
                     <ul class="list-unstyled">
                         <?php $i = 1; ?>
@@ -96,9 +97,12 @@
                             </li>
                         @endforeach
                     </ul>
-                    <div class="text-center mt-5 mb-3">
-                        <a href="#" class="btn btn-sm btn-primary">Add files</a>
-                        <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+                    @endif
+                    <div>
+                    <a href="#" class="btn btn-sm btn-primary">Catatan</a>
+                    @if ($meetings->minuter==Auth::user()->id)
+                            <a href="#" class="btn btn-sm btn-warning">Absensi</a>
+                    @endif
                     </div>
                 </div>
             </div>

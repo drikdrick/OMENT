@@ -48,17 +48,14 @@
                       <a class="btn btn-primary btn-sm" href="/userdetail/{{ $data->id }}">
                         <i class="fas fa-folder">
                         </i>
-                        View
                       </a>
                       <a class="btn btn-info btn-sm" href="#">
                         <i class="fas fa-pencil-alt">
                         </i>
-                        Edit
                       </a>
                       <a class="btn btn-danger btn-sm" href="/delete/{{ $data->id }}">
                         <i class="fas fa-trash">
                         </i>
-                        Delete
                       </a>
                     </td>
                   </tr>

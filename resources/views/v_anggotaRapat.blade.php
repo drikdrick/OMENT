@@ -1,4 +1,4 @@
-@extends('layout.v_template')
+@extends('layout.v_template2')
 
 @section('title', 'Anggota Rapat')
 @section('content')
@@ -33,11 +33,11 @@
                             {{ $item->name }}
                         </td>
                         <td>
-                            @if (!$item->respon)
+                            @if (!$item->respon=0)
                                 <span class="badge badge-warning">Pending</span>
                             @elseif ($item->respon===1)
                                 <span class="badge badge-success">Akan hadir</span>
-                            @elseif($item->respon===0)
+                            @else
                                 <span class="badge badge-danger">Berhalangan</span>
                             @endif
                         </td>

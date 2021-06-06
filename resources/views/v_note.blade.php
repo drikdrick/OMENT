@@ -10,7 +10,6 @@
                     Summernote
                 </h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
                 <textarea id="summernote">
                     Place <em>some</em> <u>text</u> <strong>here</strong>
@@ -21,6 +20,5 @@
             </div>
         </div>
     </div>
-    <!-- /.col-->
 </div>
 @endsection

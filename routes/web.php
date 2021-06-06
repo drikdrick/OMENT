@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\NoteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,7 @@ Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );
 Route::get('/meeting/edit/{id}',[MeetingController::class, 'editRapat'] );
 Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
+Route::get('/meeting/catatan/{id}',[NoteController::class, 'lihatCatatan'] );
 Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
 
 

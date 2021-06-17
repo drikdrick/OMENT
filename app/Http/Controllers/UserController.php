@@ -14,7 +14,9 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = DB::table('users')->join('roles', 'users.role', '=', 'roles.id')->get();
+        $users = DB::table('users')->join('roles', 'users.role', '=', 'roles.id')
+        ->select('users.*', 'roles.nama')
+        ->get();
 
         return view('v_user', ['users' => $users]);
     }
@@ -36,9 +38,7 @@ class UserController extends Controller
         if (!$user = DB::table('users')->find($id)) {
             abort(404);
         }
-        DB::table('users')->delete($id);
-        $users = DB::table('users')->get();
-
-        return view('v_user', ['users' => $users]);
+        
+        return index();
     }
 }

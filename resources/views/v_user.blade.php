@@ -49,7 +49,7 @@
                         <i class="fas fa-folder">
                         </i>
                       </a>
-                      <a class="btn btn-info btn-sm" href="#">
+                      <a class="btn btn-info btn-sm" href="/userdetail/{{ $data->id }}">
                         <i class="fas fa-pencil-alt">
                         </i>
                       </a>

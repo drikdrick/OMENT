@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\AbsencesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +32,9 @@ Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
 Route::get('/meeting/catatan/{id}',[NoteController::class, 'lihatCatatan'] );
 Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
-
+Route::get('/absen/buatabsen/{id}', [AbsencesController::class, 'buatAbsensi']);
 
 Route::view('/jadwal', 'v_jadwal');
-Route::view('/absen', 'v_absen');
 
 Auth::routes();
 

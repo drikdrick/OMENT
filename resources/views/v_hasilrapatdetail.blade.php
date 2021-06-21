@@ -101,8 +101,8 @@
                     <div>
                     <a href="#" class="btn btn-sm btn-primary">Catatan</a>
                     @if ($meetings->minuter==Auth::user()->id)
-                            <a href="#" class="btn btn-sm btn-warning">Absensi</a>
                     @endif
+                    <a href="/absen/buatabsen/{{ $meetings->id }}" class="btn btn-sm btn-warning">Absensi</a>
                     </div>
                 </div>
             </div>

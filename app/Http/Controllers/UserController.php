@@ -37,8 +37,10 @@ class UserController extends Controller
     {
         if (!$user = DB::table('users')->find($id)) {
             abort(404);
+        }else{
+            DB::table('users')->where('id', '=', $id)->delete();
         }
         
-        return index();
+        return $this->index();
     }
 }

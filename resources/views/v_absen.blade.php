@@ -1,34 +1,61 @@
-@extends('layout.v_template')
+@extends('layout.v_template2')
 
 @section('title', 'Absen')
 @section('content')
-    <div class="card card-default">
+<div class="row">
+    <div class="card card-default col-12">
         <div class="card-header"> Absensi {{ $meeting->title }}
         </div>
         <!-- /.card-header -->
         <div class="card-body">
           <div class="row">
             <div class="col-12">
-                <form action="" method="post">
-                    @csrf
-                    @foreach ($datas as $data)
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                          {{ $data->name }}
-                        </label>
-                    </div>
-                    @endforeach
-                </form>
+                <table id="example1" class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                No
+                            </th>
+                            <th>
+                                Nama
+                            </th>
+                            <th class="text-center">
+                                Hadir
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1; ?>
+                        <form action="" method="POST">
+                            @foreach ($datas as $item)
+                                <tr>
+                                    <td class="text-center">
+                                        {{ $no++ }}
+                                    </td>
+                                    <td>
+                                        {{ $item->name }}
+                                    </td>
+                                    <td class="text-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </form>                        
+                    </tbody>
+                </table>
             </div>
             <!-- /.col -->
           </div>
           <!-- /.row -->
         </div>
-        <!-- /.card-body -->
         <div class="card-footer">
-          Visit <a href="https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox#readme">Bootstrap Duallistbox</a> for more examples and information about
-          the plugin.
+            <div class="col-12">
+                <hr>
+                <input type="submit" value="Submit" class="btn btn-success btn-block">
+            </div>
+          *Harap cek kembali data absen sebeulum submit
         </div>
-      </div>
+    </div>
+</div>
+    
 @endsection

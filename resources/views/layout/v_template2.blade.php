@@ -134,7 +134,7 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a href="/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
+                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     Jadwal

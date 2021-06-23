@@ -26,6 +26,15 @@ class MeetingController extends Controller
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
 
+    public function jadwalRapat()
+    {
+        $meetings = DB::table('meetings')
+        ->join('users', 'meetings.minuter', '=', 'users.id')
+        ->select('meetings.*', 'users.name')
+        ->get();
+        return view('v_hasilrapat', ['meetings' => $meetings]);
+    }
+
     public function buatRapat()
     {
         $users = DB::table('users')->where('role', '3')->get();

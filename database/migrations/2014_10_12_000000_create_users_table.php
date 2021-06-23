@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('foto')->default('foto.jpg');
             $table->rememberToken();
             $table->foreignId('role')->constrained('roles');
+            $table->boolean('isActive')->default(1);
             $table->timestamps();
         });
     }

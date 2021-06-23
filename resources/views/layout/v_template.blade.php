@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/dist/css/adminlte.min.css">
 
-
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet"
         href="{{ asset('template/') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -118,7 +117,7 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a href="/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
+                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     Jadwal

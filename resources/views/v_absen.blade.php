@@ -26,7 +26,8 @@
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <form action="" method="POST">
+                        <form action="/absen/input/{{$meeting->id}}" method="POST">
+                            @csrf
                             @foreach ($datas as $item)
                                 <tr>
                                     <td class="text-center">
@@ -36,11 +37,10 @@
                                         {{ $item->name }}
                                     </td>
                                     <td class="text-center">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <input class="form-check-input" type="checkbox" name="dataAbsen[]" value="{{ $item->users_id }}" id="flexCheckChecked">
                                     </td>
                                 </tr>
-                            @endforeach
-                        </form>                        
+                            @endforeach                
                     </tbody>
                 </table>
             </div>
@@ -52,6 +52,7 @@
             <div class="col-12">
                 <hr>
                 <input type="submit" value="Submit" class="btn btn-success btn-block">
+            </form>        
             </div>
           *Harap cek kembali data absen sebeulum submit
         </div>

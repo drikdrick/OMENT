@@ -9,6 +9,8 @@ use App\Models\Attachments;
 use App\Models\Absence;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TasksController;
+use Carbon\Carbon;
 
 class MeetingController extends Controller
 {
@@ -19,20 +21,26 @@ class MeetingController extends Controller
 
     public function hasilRapat()
     {
+        $current = Carbon::now();
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->select('meetings.*', 'users.name')
+        ->where('tanggal', '<=', $current->toDateString())
+        ->where('waktu_akhir', '<=', $current->toTimeString())
         ->get();
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
 
     public function jadwalRapat()
     {
+        $current = Carbon::now();
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->select('meetings.*', 'users.name')
+        ->where('tanggal', '>=', $current->toDateString())
+        ->where('waktu_akhir', '>=', $current->toTimeString())
         ->get();
-        return view('v_hasilrapat', ['meetings' => $meetings]);
+        return view('v_jadwal', ['meetings' => $meetings]);
     }
 
     public function buatRapat()

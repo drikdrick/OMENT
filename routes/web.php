@@ -34,8 +34,8 @@ Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat']
 Route::get('/meeting/catatan/{id}',[NoteController::class, 'lihatCatatan'] );
 Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
 Route::get('/absen/buatabsen/{id}', [AbsencesController::class, 'buatAbsensi']);
-
-Route::view('/jadwal', 'v_jadwal');
+Route::post('/absen/input/{id}', [AbsencesController::class, 'inputAbsensi']);
+Route::get('/absen', [AbsencesController::class, 'index']);
 
 Auth::routes();
 

@@ -18,7 +18,7 @@ class CreateAbsencesTable extends Migration
             $table->foreignId('users_id')->constrained('users');
             $table->foreignId('meetings_id')->constrained('meetings')->onDelete('cascade');
             $table->boolean('respon')->nullable();
-            $table->integer('absen')->nullable();
+            $table->boolean('absen')->nullable();
             $table->integer('update_by')->nullable();
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
 
 @section('title', 'User Detail')
 @section('content')
-<a href="/user" class="btn btn-sm">Back</a>
+<a href="/user" class="btn btn-sm btn-primary mb-1">Back</a>
 <div>
     <!-- Widget: user widget style 1 -->
     <div class="card card-widget widget-user">

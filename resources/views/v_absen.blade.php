@@ -24,10 +24,10 @@
                             </th>
                         </tr>
                     </thead>
+                    <form action="/absen/input/{{$meeting->id}}" method="POST">
+                        @csrf
                     <tbody>
                         <?php $no = 1; ?>
-                        <form action="/absen/input/{{$meeting->id}}" method="POST">
-                            @csrf
                             @foreach ($datas as $item)
                                 <tr>
                                     <td class="text-center">
@@ -51,11 +51,11 @@
         <div class="card-footer">
             <div class="col-12">
                 <hr>
-                <input type="submit" value="Submit" class="btn btn-success btn-block">
-            </form>        
+                <input type="submit" value="Submit" class="btn btn-success btn-block">     
             </div>
           *Harap cek kembali data absen sebeulum submit
         </div>
+        </form>   
     </div>
 </div>
     

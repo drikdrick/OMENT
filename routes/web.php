@@ -27,15 +27,15 @@ Route::get('/meeting/anggota/{id}', [MeetingController::class, 'anggotaRapat']);
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
 Route::get('/meeting/jadwal',[MeetingController::class, 'jadwalRapat'] );
 Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailRapat'] );
-Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );
 Route::get('/meeting/edit/{id}',[MeetingController::class, 'editRapat'] );
-Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
 Route::get('/meeting/catatan/{id}',[NoteController::class, 'lihatCatatan'] );
+Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );
+Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
+Route::get('/absen', [AbsencesController::class, 'index']);
 Route::get('/absen/buatabsen/{id}', [AbsencesController::class, 'buatAbsensi']);
 Route::post('/absen/input/{id}', [AbsencesController::class, 'inputAbsensi']);
-Route::get('/absen', [AbsencesController::class, 'index']);
 
 Auth::routes();
 

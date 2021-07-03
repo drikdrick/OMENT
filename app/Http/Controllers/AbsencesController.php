@@ -48,5 +48,7 @@ class AbsencesController extends Controller
                 ->update(['respon' => 0]);
             }
         }
+        
+        return $this->index();
     }
 }

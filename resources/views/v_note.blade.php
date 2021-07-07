@@ -1,24 +1,28 @@
 @extends('layout.v_template')
 
-@section('title', 'Absen')
+@section('title', 'Notulensi')
 @section('content')
     <div class="row">
+        <form action="/meeting/buatNotulensi/{{ $meetings_id }}" method="post">
+            @csrf
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    Summernote
+                    Notulensi Rapat Rutin
                 </h3>
             </div>
             <div class="card-body">
-                <textarea id="summernote">
-                    Place <em>some</em> <u>text</u> <strong>here</strong>
-            </textarea>
+                <textarea id="summernote" name="isi">
+                    
+                </textarea>
             </div>
             <div class="card-footer">
-                Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin.
+                <input type="submit" value="Buat" class="btn btn-block btn-primary">
+                *Mohon cek kembali hasil notulensi sebelum submit.
             </div>
         </div>
     </div>
+        </form>
 </div>
 @endsection

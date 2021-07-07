@@ -99,7 +99,7 @@
                     </ul>
                     @endif
                     <div>
-                    <a href="#" class="btn btn-sm btn-primary">Catatan</a>
+                    <a href="/meeting/notulensi/{{ $meetings->id }}" class="btn btn-sm btn-primary">Catatan</a>
                     @if ($meetings->minuter==Auth::user()->id)
                     @endif
                     <a href="/absen/buatabsen/{{ $meetings->id }}" class="btn btn-sm btn-warning">Absensi</a>

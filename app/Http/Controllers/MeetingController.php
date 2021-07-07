@@ -25,8 +25,8 @@ class MeetingController extends Controller
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->select('meetings.*', 'users.name')
-        ->where('tanggal', '<=', $current->toDateString())
-        ->where('waktu_akhir', '<=', $current->toTimeString())
+        ->where('tanggal', '<', $current->toDateString())
+        ->where('waktu_akhir', '<', $current->toTimeString())
         ->get();
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }

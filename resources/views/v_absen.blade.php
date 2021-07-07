@@ -26,6 +26,8 @@
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
+                        <form action="/absen/input/{{$meeting->id}}" method="POST">
+                            @csrf
                             @foreach ($datas as $item)
                                 <tr>
                                     <td class="text-center">
@@ -35,8 +37,6 @@
                                         {{ $item->name }}
                                     </td>
                                     <td class="text-center">
-                                    <form action="/absen/input/{{$meeting->id}}" method="POST">
-                                        @csrf
                                         <input class="form-check-input" type="checkbox" name="dataAbsen[]" value="{{ $item->users_id }}" id="flexCheckChecked">
                                     </td>
                                 </tr>

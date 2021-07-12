@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\HomeController;
 use App\Models\notes;
+use App\Models\Documentations;
+use App\Http\Controllers\TasksController;
 
 class NoteController extends Controller
 {
@@ -25,6 +27,21 @@ class NoteController extends Controller
         $notes->users_id = Auth::user()->id;
         $notes->isi=$request->isi;
         $notes->save();
+
+        if ($request->hasfile('lampiran')) {
+            $data;
+            foreach ($request->file('lampiran') as $file) {
+                $name = time() . '.' . $file->extension();
+                $file->move(public_path() . '/files/', $name);
+                $data[] = $name;
+            }
+            for ($i = 0; $i < count($data); $i++) {
+                $file = new Documentations();
+                $file->Path = $data[$i];
+                $file->meetings_id = $id;
+                $file->save();
+            }
+        }
 
         $home = new HomeController;
 

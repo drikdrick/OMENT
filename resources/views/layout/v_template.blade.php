@@ -278,11 +278,11 @@
             });
         }
         $(function () {
-            $('#summernote').summernote()
+            $('#summernote').summernote({'height' : 225,})
 
             CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
             mode: "htmlmixed",
-            theme: "monokai"
+            theme: "monokai",
             });
         })
     </script>

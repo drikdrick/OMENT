@@ -100,10 +100,12 @@
                     @endif
                     <div>
                     <a href="/meeting/notulensi/{{ $meetings->id }}" class="btn btn-sm btn-primary">Catatan</a>
+                    
+                    <a href="/absen/buatabsen/{{ $meetings->id }}" class="btn btn-sm btn-warning">Absensi</a>
+                    
                     @if ($meetings->minuter==Auth::user()->id)
                     @endif
-                    <a href="/absen/buatabsen/{{ $meetings->id }}" class="btn btn-sm btn-warning">Absensi</a>
-                    </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,8 @@
 @section('content')
 <div class="row">
     <div class="card card-default col-12">
+        <form action="/absen/input/{{$meeting->id}}" method="POST">
+        @csrf
         <div class="card-header"> Absensi {{ $meeting->title }}
         </div>
         <!-- /.card-header -->
@@ -26,8 +28,6 @@
                     </thead>
                     <tbody>
                         <?php $no = 1; ?>
-                        <form action="/absen/input/{{$meeting->id}}" method="POST">
-                            @csrf
                             @foreach ($datas as $item)
                                 <tr>
                                     <td class="text-center">

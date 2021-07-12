@@ -2,27 +2,38 @@
 
 @section('title', 'Notulensi')
 @section('content')
-    <div class="row">
-        <form action="/meeting/buatNotulensi/{{ $meetings_id }}" method="post">
-            @csrf
+<div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
+            <form action="/meeting/buatNotulensi/{{ $meetings_id }}" method="post"  enctype="multipart/form-data">
+            @csrf
             <div class="card-header">
                 <h3 class="card-title">
                     Notulensi Rapat Rutin
                 </h3>
             </div>
             <div class="card-body">
-                <textarea id="summernote" name="isi">
+                <textarea id="summernote" name="isi" >
                     
                 </textarea>
+
+                <div class="form-group">
+                    <label for="exampleInputFile">Dokumentasi</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input name="lampiran[]" type="file" class="custom-file-input" id="exampleInputFile"
+                                multiple>
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Buat" class="btn btn-block btn-primary">
             </div>
             <div class="card-footer">
-                <input type="submit" value="Buat" class="btn btn-block btn-primary">
                 *Mohon cek kembali hasil notulensi sebelum submit.
             </div>
+            </form>
         </div>
     </div>
-        </form>
 </div>
 @endsection

@@ -31,7 +31,6 @@ class AbsencesController extends Controller
     }
 
     public function inputAbsensi(Request $request, $id){
-        dd($request);
         if (!$meetings = DB::table('meetings')->find($id)) {
             abort(404);
         }

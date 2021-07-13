@@ -21,24 +21,19 @@ class MeetingController extends Controller
 
     public function hasilRapat()
     {
-        $current = Carbon::now();
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
+        ->join('notes', 'meetings.id', '=', 'notes.meetings_id')
         ->select('meetings.*', 'users.name')
-        ->where('tanggal', '<', $current->toDateString())
-        ->where('waktu_akhir', '<', $current->toTimeString())
         ->get();
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
 
     public function jadwalRapat()
     {
-        $current = Carbon::now();
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->select('meetings.*', 'users.name')
-        ->where('tanggal', '>=', $current->toDateString())
-        ->where('waktu_akhir', '>=', $current->toTimeString())
         ->get();
         return view('v_jadwal', ['meetings' => $meetings]);
     }
@@ -92,7 +87,7 @@ class MeetingController extends Controller
         }
         return $this->hasilRapat();
     }
-    public function detailRapat($id)
+    public function detailJadwalRapat($id)
     {
         if (!$meetings = DB::table('meetings')->find($id)) {
             abort(404);
@@ -105,7 +100,24 @@ class MeetingController extends Controller
         $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();
         $leaders = DB::table('users')->where('users.id', $meetings->leader)->first();
 
-        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders]);
+        return view('v_incomingrapat', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders]);
+    }
+
+    public function detailHasilRapat($id)
+    {
+        if (!$meetings = DB::table('meetings')->find($id)) {
+            abort(404);
+        }
+        $meetings = DB::table('meetings')->where('meetings.id', $id)->first();
+        $lampiran = DB::table('attachments')->join('meetings', 'meetings.id', '=', 'attachments.meetings_id')
+            ->where('meetings.id', $id)->get();
+        $topik = DB::table('topics')->join('meetings', 'meetings.id', '=', 'topics.meeting_id')
+            ->where('meetings.id', $id)->get();
+        $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();
+        $leaders = DB::table('users')->where('users.id', $meetings->leader)->first();
+        $result = DB::table('notes')->where('meetings_id', $id)->first();
+
+        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders, 'result' => $result]);
     }
 
     public function deleteRapat($id)

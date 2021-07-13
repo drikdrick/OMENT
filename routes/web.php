@@ -25,8 +25,9 @@ Route::get('/undangan/tolakUndangan/{id}', [HomeController::class, 'tolakUndanga
 Route::get('/meeting/buatrapat', [MeetingController::class, 'buatRapat']);
 Route::get('/meeting/anggota/{id}', [MeetingController::class, 'anggotaRapat']);
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
+Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailHasilRapat'] );
 Route::get('/meeting/jadwal',[MeetingController::class, 'jadwalRapat'] );
-Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailRapat'] );
+Route::get('/meeting/jadwal/{id}',[MeetingController::class, 'detailJadwalRapat'] );
 Route::get('/meeting/edit/{id}',[MeetingController::class, 'editRapat'] );
 Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat'] );
 Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );

@@ -116,14 +116,6 @@
                                 </a>
                             </li>
                         @endif
-                        <li class="nav-item">
-                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
-                                <i class="nav-icon far fa-calendar-alt"></i>
-                                <p>
-                                    Jadwal
-                                </p>
-                            </a>
-                        </li>
                         @if (auth()->user()->role <= 2)
                             <li class="nav-item">
                                 <a href="/meeting/buatrapat"
@@ -134,10 +126,18 @@
                             </li>
                         @endif
                         <li class="nav-item">
+                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Jadwal
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/meeting/hasil"
                                 class="nav-link {{ request()->is('meeting/hasil') ? 'active' : '' }}">
                                 <i class="far fas fa-search nav-icon"></i>
-                                <p>Rapat</p>
+                                <p>Hasil Rapat</p>
                             </a>
                         </li>
                         <li class="nav-item">

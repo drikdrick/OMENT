@@ -52,21 +52,10 @@
                                 {{ $item->name }}
                             </td>
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="/meeting/hasil/{{ $item->id }}">
+                                <a class="btn btn-primary btn-sm" href="/meeting/jadwal/{{ $item->id }}">
                                     <i class="fas fa-folder">
                                     </i>
                                 </a>
-                                @if (auth()->user()->role <= 2)
-                                    <a class="btn btn-info btn-sm" href="/meeting/edit/{{ $item->id }}">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                    </a>
-                                    <a class="btn btn-danger btn-sm swalDefaultSuccess"
-                                        href="/meeting/deleteRapat/{{ $item->id }}">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                    </a>
-                                @endif
                             </td>
                         </tr>
                     @endforeach

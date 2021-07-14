@@ -76,35 +76,3 @@
     </div>
 </div>
 @endsection
-
-@push('custom-scripts')
-    <script>
-        $('#editPasswordForm').validate({
-            ignore:'.ignore',
-            errorClass:'invalid',
-            validClass:'success',
-
-            rules:{
-                password:{
-                    minlength:8,
-                    maxlength:32
-                },
-                passwordBaru:{
-                    minlength:8,
-                    maxlength:32
-                },
-                konfirmPassword:{
-                    equalto:'#passwordBaru'
-                },
-            },
-
-            messages:{
-
-            },
-            submitHandler:function(form){
-                $.loadingOverlay("show");
-                form.submit();
-            }
-        })
-    </script>
-@endpush

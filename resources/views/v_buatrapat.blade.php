@@ -39,8 +39,10 @@
                         <div class="form-group">
                             <label for="notulen">Notulen</label>
                             <select id="notulen" name="notulen" class="form-control">
-                                @foreach ($users as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @foreach ($users as $item)
+                                        <option value="{{ $item->id }}" @if ($item->id == $meetings->minuter)disabled @endif>
+                                            {{ $item->name }} @if ($item->id == $meetings->minuter)(Disabled)@endif
+                                    </option>
                                     @endforeach
                             </select>
                         </div>

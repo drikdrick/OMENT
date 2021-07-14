@@ -40,13 +40,18 @@ class MeetingController extends Controller
 
     public function buatRapat()
     {
-        $users = DB::table('users')->where('role', '3')->get();
-        return view('v_buatrapat', ['users' => $users]);
+        $users = DB::table('users')->where('role', '3')
+        ->orderBy('name', 'asc')->get();
+        $meetings = DB::table('meetings')->latest()->first();
+        return view('v_buatrapat', ['users' => $users, 'meetings' => $meetings]);
     }
     public function createRapat(Request $request)
     {
         $kaprodi = DB::table('users')->where('role', '2')->first();
-        $users = DB::table('users')->where('role', '!=', '1')->get();
+        $users = DB::table('users')
+        ->where('role', '!=', '1')
+        ->orderBy('name', 'asc')
+        ->get();
         $meetings = new Meeting();
         $meetings->title = $request->judul;
         $meetings->tanggal = $request->tanggal;
@@ -85,7 +90,7 @@ class MeetingController extends Controller
             $absence->meetings_id=$meetings->id;
             $absence->save();
         }
-        return $this->hasilRapat();
+        return $this->jadwalRapat();
     }
     public function detailJadwalRapat($id)
     {
@@ -127,7 +132,7 @@ class MeetingController extends Controller
         }
         DB::table('meetings')->delete($id);
 
-        return $this->hasilRapat();
+        return $this->jadwalRapat();
     }
 
     public function editRapat($id)
@@ -147,7 +152,7 @@ class MeetingController extends Controller
     {
         $meetings->update($request->all());
 
-        return redirect()->route($this->hasilRapat());
+        return redirect()->route($this->jadwalRapat());
     }
 
     public function anggotaRapat($id){

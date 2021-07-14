@@ -43,4 +43,14 @@ class UserController extends Controller
         
         return $this->index();
     }
+
+    public function edit($id){
+        if(!$userd = DB ::table('users')->find($id)){
+            abort(404);
+        }
+
+        $user = DB::table('users')->find($id);
+
+        return view('v_edituser', ['user'=>$user]);
+    }
 }

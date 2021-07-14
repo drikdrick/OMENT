@@ -3,13 +3,14 @@
 @section('title', 'User Detail')
 @section('content')
 <a href="/user" class="btn btn-sm btn-primary mb-1">Back</a>
+<a href="edit/{{ $users->id }}" class="btn btn-sm btn-warning mb-1">Edit</a>
 <div>
     <!-- Widget: user widget style 1 -->
     <div class="card card-widget widget-user">
       <!-- Add the bg color to the header using any of the bg-* classes -->
       <div class="widget-user-header bg-info">
         <h3 class="widget-user-username">{{ $users->name }}</h3>
-        <h5 class="widget-user-desc">{{ $users->email }} Password</h5>
+        <h5 class="widget-user-desc">{{ $users->email }}</h5>
       </div>
       <div class="widget-user-image">
         <img class="img-circle elevation-2" src="{{ url('foto/'.$users->foto) }}" alt="User Avatar">

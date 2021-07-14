@@ -19,11 +19,12 @@
             <div class="col-8">
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
-                        <form action="update">
+                            <form action="editProfile" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Nama</label>
                                 <input type="textarea" name="name" id="name" class="form-control" value="{{ $user->name }}" required>
+                                <input type="textarea" name="id" id="id" class="form-control" value="{{ $user->id }}" required hidden>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -33,30 +34,30 @@
                                 <label for="exampleInputFile">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input name="lampiran[]" type="file" class="custom-file-input" id="exampleInputFile"
-                                            multiple>
+                                        <input name="lampiran" type="file" class="custom-file-input" id="exampleInputFile">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Update My Profile" class="btn btn-primary float-right">
+                                <input type="submit" id="updateProfile" value="Update My Profile" class="btn btn-primary float-right">
                             </div>
                         </form>
                         <a href="/home"><button class="btn btn-outline-danger float-right mr-2">Cancel</button></a>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                        <form action="update">
+                        <form action="editPassword" method="POST" id="editPasswordForm">
                             @csrf
                             <div class="form-group">
                                 <label for="password">Password Lama</label>
                                 <input type="password" name="password" id="password" class="form-control" required>
+                                <input type="textarea" name="id" id="id" class="form-control" value="{{ $user->id }}" required hidden>
                             </div>
                             @csrf
                             <div class="form-group">
-                                <label for="password">Password Baru</label>
-                                <input type="password" name="password" id="password" class="form-control" required>
+                                <label for="passwordBaru">Password Baru</label>
+                                <input type="password" name="passwordBaru" id="passwordBaru" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="konfirmPassword">Konfirmasi Password</label>
@@ -75,3 +76,35 @@
     </div>
 </div>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        $('#editPasswordForm').validate({
+            ignore:'.ignore',
+            errorClass:'invalid',
+            validClass:'success',
+
+            rules:{
+                password:{
+                    minlength:8,
+                    maxlength:32
+                },
+                passwordBaru:{
+                    minlength:8,
+                    maxlength:32
+                },
+                konfirmPassword:{
+                    equalto:'#passwordBaru'
+                },
+            },
+
+            messages:{
+
+            },
+            submitHandler:function(form){
+                $.loadingOverlay("show");
+                form.submit();
+            }
+        })
+    </script>
+@endpush

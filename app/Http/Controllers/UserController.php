@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -52,5 +55,31 @@ class UserController extends Controller
         $user = DB::table('users')->find($id);
 
         return view('v_edituser', ['user'=>$user]);
+    }
+
+    public function editProfile(Request $request){
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->hasFile('lampiran')) {
+            $file = $request->file('lampiran');
+            $fileName = $request->name . '.' . $file->extension();
+            $file->move(public_path() . '/foto/', $fileName);
+            $user->foto = $fileName;
+        }
+        $user->save();
+        return back();
+    }
+    public function editPassword(Request $request){
+        Auth::user()->password;
+        if (Hash::check($request->password, Auth::user()->password)) {
+            $user = User::find(Auth::user()->id);
+            $user->password = Hash::make($request->passwordBaru);
+            $user->save();
+
+            return back()->with('success', 'Password berhasil diperbaharui.');
+        }else {
+            return back()->with('error', 'Password lama tidak benar, harap periksa kembali.');
+        }
     }
 }

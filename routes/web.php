@@ -33,7 +33,7 @@ Route::get('/meeting/deleteRapat/{id}',[MeetingController::class, 'deleteRapat']
 Route::post('/buat-rapat',[MeetingController::class, 'createRapat'] );
 Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 Route::get('/meeting/notulensi/{id}',[NoteController::class, 'lihatCatatan'] );
-Route::post('/meeting/buatNotulensi/{id}',[NoteController::class, 'buatCatatan'] );
+Route::post('/meeting/buatNotulensi',[NoteController::class, 'buatCatatan'] );
 Route::get('/userdetail/{id}',[UserController::class, 'detail'] );
 Route::get('/userdetail/edit/{id}',[UserController::class, 'edit'] ); 
 Route::post('/userdetail/edit/editPassword',[UserController::class, 'editPassword'] ); 

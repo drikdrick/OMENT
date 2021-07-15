@@ -2,10 +2,10 @@
 
 @section('title', 'Edit Rapat')
 @section('content')
-    <form action="/updateRapat" method="POST" enctype="multipart/form-data">
+    <form action="/updateRapat" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Umum</h3>
@@ -20,6 +20,8 @@
                             <label for="judul">Judul</label>
                             <input type="textarea" name="judul" id="judul" class="form-control"
                                 value="{{ $meetings->title }}" required>
+                            <input type="textarea" name="id" id="id" class="form-control"
+                                value="{{ $meetings->id }}" required hidden>
                         </div>
                         <div class="form-group">
                             <label for="tanggal">Tanggal</label>
@@ -56,7 +58,7 @@
                     </div>
                 </div>
             </div>
-
+{{-- 
             <div class="col-md-6">
                 <div class="card card-secondary">
                     <div class="card-header">
@@ -92,10 +94,11 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
         </div>
         <div class="row">
             <div class="col-12">
-                <a href="/meeting/hasil" class="btn btn-secondary btn-block">Cancel</a>
+                <a href="/meeting/jadwal" class="btn btn-secondary btn-block">Cancel</a>
                 <input type="submit" value="Update Meeting" class="btn btn-warning btn-block">
             </div>
         </div>

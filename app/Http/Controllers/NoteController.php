@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MeetingController;
 use App\Models\notes;
 use App\Models\Documentations;
 use App\Http\Controllers\TasksController;
@@ -18,12 +18,21 @@ class NoteController extends Controller
     }
 
     public function lihatCatatan($id){
-        return view('v_note')->with('meetings_id', $id);
+        $note = notes::where('meetings_id', $id)->first();
+        if (is_null($note)) {
+            $note = null;
+        }else {
+            if ($note->users_id!=Auth::user()->id) {
+                abort(403);
+            }
+        }
+        
+        return view('v_note', ['note'=>$note])->with('id', $id);
     }
 
-    public function buatCatatan(Request $request, $id){
-        $notes = new notes();
-        $notes->meetings_id = $id;
+    public function buatCatatan(Request $request){
+        $notes = notes::firstOrNew(['meetings_id' => $request->id]);
+        $notes->meetings_id = $request->id;
         $notes->users_id = Auth::user()->id;
         $notes->isi=$request->isi;
         $notes->save();
@@ -43,9 +52,9 @@ class NoteController extends Controller
             }
         }
 
-        $home = new HomeController;
+        $home = new MeetingController;
 
-        return $home->index();
+        return $home->detailHasilRapat($request->id);
 
     }
 }

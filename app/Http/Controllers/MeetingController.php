@@ -148,11 +148,19 @@ class MeetingController extends Controller
         return view('v_editrapat', ['meetings' => $meetings, 'users' => $users]);
     }
 
-    public function updateRapat(Request $request, Meeting $meetings)
+    public function updateRapat(Request $request)
     {
-        $meetings->update($request->all());
+        $meetings = Meeting::find($request->id);
+        $meetings->title = $request->judul;
+        $meetings->tanggal = $request->tanggal;
+        $meetings->waktu_mulai = $request->mulai;
+        $meetings->waktu_akhir = $request->berakhir;
+        $meetings->place = $request->tempat;
+        $meetings->leader = Auth::user()->id;
+        $meetings->minuter = $request->notulen;
+        $meetings->save();
 
-        return redirect()->route($this->jadwalRapat());
+        return $this->jadwalRapat();
     }
 
     public function anggotaRapat($id){

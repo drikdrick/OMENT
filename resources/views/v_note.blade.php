@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
-            <form action="/meeting/buatNotulensi/{{ $meetings_id }}" method="post"  enctype="multipart/form-data">
+            <form action="/meeting/buatNotulensi" method="post"  enctype="multipart/form-data">
             @csrf
             <div class="card-header">
                 <h3 class="card-title">
@@ -14,8 +14,11 @@
             </div>
             <div class="card-body">
                 <textarea id="summernote" name="isi" >
-                    
+                    @if (!is_null($note))
+                        {!! $note->isi !!}
+                    @endif
                 </textarea>
+                <input type="text" name="id" value="{{ $id }}" hidden>
 
                 <div class="form-group">
                     <label for="exampleInputFile">Dokumentasi</label>

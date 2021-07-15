@@ -21,9 +21,9 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th>Foto</th>
-                <th style="width: 20%">
+                <th style="width: 20%" class="text-center">
+                  Action
                 </th>
-                <th>Status</th>
               </tr>
               </thead>
               <tbody>
@@ -58,14 +58,6 @@
                         <i class="fas fa-trash">
                         </i>
                       </a>
-                    </td>
-                    <td>
-                      <div class="form-group text-center">
-                        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                          <input type="checkbox" class="custom-control-input" id="customSwitch{{ $data->id }}">
-                          <label class="custom-control-label" for="customSwitch{{ $data->id }}"></label>
-                        </div>
-                      </div>
                     </td>
                   </tr>
               @endforeach

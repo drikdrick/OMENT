@@ -15,10 +15,7 @@
                         Nama
                     </th>
                     <th>
-                        Respon
-                    </th>
-                    <th class="text-center">
-                        Waktu
+                        Status
                     </th>
                 </tr>
             </thead>
@@ -33,16 +30,15 @@
                             {{ $item->name }}
                         </td>
                         <td>
-                            @if (!$item->respon=0)
+                            @if (is_null($item->respon))
                                 <span class="badge badge-warning">Pending</span>
-                            @elseif ($item->respon===1)
-                                <span class="badge badge-success">Akan hadir</span>
+                            @elseif ($item->respon==1)
+                                <span class="badge badge-primary">Akan hadir</span>
+                            @elseif ($item->respon==2)
+                                <span class="badge badge-success">Hadir</span>
                             @else
                                 <span class="badge badge-danger">Berhalangan</span>
                             @endif
-                        </td>
-                        <td class="text-center">
-                            {{ $item->updated_at }}
                         </td>
                     </tr>
                 @endforeach

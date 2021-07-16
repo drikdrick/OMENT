@@ -48,7 +48,7 @@ class HomeController extends Controller
         $absensi = DB::table('absences')
         ->where('users_id', Auth::user()->id)
         ->where('meetings_id', $id)
-        ->update(['respon'=>0]);
+        ->update(['respon'=>0, 'updated_at'=>now()]);
 
         return $this->index();    
     }

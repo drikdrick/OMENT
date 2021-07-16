@@ -47,7 +47,7 @@ class NoteController extends Controller
             for ($i = 0; $i < count($data); $i++) {
                 $file = new Documentations();
                 $file->Path = $data[$i];
-                $file->meetings_id = $id;
+                $file->meetings_id = $request->id;
                 $file->save();
             }
         }

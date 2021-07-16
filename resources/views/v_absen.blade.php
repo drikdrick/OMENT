@@ -37,7 +37,9 @@
                                         {{ $item->name }}
                                     </td>
                                     <td class="text-center">
-                                        <input class="form-check-input" type="checkbox" name="dataAbsen[]" value="{{ $item->users_id }}" id="flexCheckChecked">
+                                        <input class="form-check-input" type="checkbox" name="dataAbsen[]" value="{{ $item->users_id }}" id="flexCheckChecked" @if ($item->respon==2)
+                                            checked
+                                        @endif>
                                     </td>
                                 </tr>
                             @endforeach                

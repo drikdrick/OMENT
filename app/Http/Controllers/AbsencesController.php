@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Absence;
 
 class AbsencesController extends Controller
 {
@@ -34,18 +35,15 @@ class AbsencesController extends Controller
         if (!$meetings = DB::table('meetings')->find($id)) {
             abort(404);
         }
+        DB::table('absences')
+        ->where('meetings_id', $id)
+        ->update(['respon' => 0]);
+
         for ($i = 0; $i < count($request->dataAbsen); $i++) {
-            if ($request->dataAbsen[$i]) {
-                DB::table('absences')
-                ->where('meetings_id', $id)
-                ->where('users_id', $request->dataAbsen[$i])
-                ->update(['respon' => 2]);
-            }else{
-                DB::table('absences')
-                ->where('meetings_id', $id)
-                ->where('users_id', $request->dataAbsen[$i])
-                ->update(['respon' => 0]);
-            }
+            DB::table('absences')
+            ->where('meetings_id', $id)
+            ->where('users_id', $request->dataAbsen[$i])
+            ->update(['respon' => 2]);
         }
         
         return $this->index();

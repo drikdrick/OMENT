@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Absence;
+use App\Http\Controllers\MeetingController;
 
 class AbsencesController extends Controller
 {
@@ -46,6 +47,8 @@ class AbsencesController extends Controller
             ->update(['respon' => 2]);
         }
         
-        return $this->index();
+        $home = new MeetingController;
+
+        return $home->detailJadwalRapat($request->id);
     }
 }

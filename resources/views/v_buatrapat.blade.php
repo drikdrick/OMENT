@@ -40,9 +40,17 @@
                             <label for="notulen">Notulen</label>
                             <select id="notulen" name="notulen" class="form-control">
                                     @foreach ($users as $item)
-                                        <option value="{{ $item->id }}" @if ($item->id == $meetings->minuter)disabled @endif>
-                                            {{ $item->name }} @if ($item->id == $meetings->minuter)(Disabled)@endif
-                                    </option>
+                                        @if (!is_null($meetings))
+                                        <option value="{{ $item->id }}" 
+                                            @if ($item->id == $meetings->minuter)disabled @endif>
+                                            {{ $item->name }} 
+                                            @if ($item->id == $meetings->minuter)(Disabled)@endif
+                                        </option>
+                                        @else
+                                        <option value="{{ $item->id }}">
+                                            {{ $item->name }}
+                                        </option>
+                                        @endif
                                     @endforeach
                             </select>
                         </div>

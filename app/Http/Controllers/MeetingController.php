@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TasksController;
 use Carbon\Carbon;
+use App\Mail\MeetingInvitation;
+use Illuminate\Support\Facades\Mail;
 
 class MeetingController extends Controller
 {
@@ -90,6 +92,10 @@ class MeetingController extends Controller
             $absence->meetings_id=$meetings->id;
             $absence->save();
         }
+        foreach ($users as $variable) {
+            Mail::to($variable->email)->send(new MeetingInvitation($meetings));
+        }
+
         return $this->jadwalRapat();
     }
     public function detailJadwalRapat($id)

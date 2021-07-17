@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Veronika Marpaung',
-            'email' => 'vero@gmail.com',
+            'email' => 'veronikaomrp@gmail.com',
             'password' => Hash::make('qpwoei123'),
             'foto' => 'foto.jpg',
             'role'=>3,
@@ -51,15 +51,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Theresia Tampubolon',
-            'email' => 'ecak@gmail.com',
-            'password' => Hash::make('qpwoei123'),
-            'foto' => 'foto.jpg',
-            'role'=>3,
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Hansen Situmorang',
-            'email' => 'hansen@gmail.com',
+            'email' => 'tereshajesika@gmail.com',
             'password' => Hash::make('qpwoei123'),
             'foto' => 'foto.jpg',
             'role'=>3,
@@ -67,7 +59,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'David Simatupang',
-            'email' => 'david@gmail.com',
+            'email' => 'fedricks.siagian@gmail.com',
             'password' => Hash::make('qpwoei123'),
             'foto' => 'foto.jpg',
             'role'=>3,

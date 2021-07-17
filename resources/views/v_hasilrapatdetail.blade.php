@@ -5,7 +5,7 @@
     <!-- Default box -->
     <div class="card card-primary">
         <div class="card-header ">
-            <h1 class="card-title">{{ $meetings->title }}</h1>
+            <h1 class="card-title">Nama Rapat : {{ $meetings->title }}</h1>
         </div>
         <div class="card-body">
             <div class="row">
@@ -44,7 +44,7 @@
                             <div class="card card-primary card-outline">
                                     <div class="card-header">
                                         <h4 class="card-title w-100">
-                                            Topik Rapat
+                                            Agenda Rapat
                                         </h4>
                                     </div>
                                 <div class="card-body">
@@ -59,12 +59,12 @@
 
                 <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                     <div class="text-muted">
-                        <p class="text-sm">Project Leader
+                        <p class="text-sm">Ketua Rapat
                             <a href="/userdetail/{{ $meetings->leader }}">
                                 <b class="d-block">{{ $leaders->name }}</b>
                             </a>
                         </p>
-                        <p class="text-sm">Notulen
+                        <p class="text-sm">Notulis
                             <a href="/userdetail/{{ $meetings->minuter }}">
                                 <b class="d-block">{{ $notulen->name }}</b>
                             </a>
@@ -77,7 +77,7 @@
                     </div>
 
                     @if (!$lampirans->isEmpty())
-                    <h5 class="mt-5 text-muted">Files</h5>
+                    <h5 class="mt-5 text-muted">Lampiran</h5>
                     <ul class="list-unstyled">
                         <?php $i = 1; ?>
                         @foreach ($lampirans as $data)

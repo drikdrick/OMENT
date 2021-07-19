@@ -37,7 +37,7 @@
         </tr>
     </table>
     <br>
-    <p>Mohon Bapak dan Ibu membuka kembali sistem untuk mengkonfirmasi kehadiran dengan klik di <a href="127.0.0.1">sini</a>. </p>
+    <p>Mohon Bapak dan Ibu membuka kembali sistem untuk mengkonfirmasi kehadiran dengan klik di <a href="http://127.0.0.1:8000">sini</a>. </p>
     
     <br>
     <p>Terima kasih atas perhatian nya.</p>

@@ -51,7 +51,7 @@ class MeetingController extends Controller
     {
         $kaprodi = DB::table('users')->where('role', '2')->first();
         $users = DB::table('users')
-        ->where('role', '!=', '1')
+        ->where('role', '=', '3')
         ->orderBy('name', 'asc')
         ->get();
         $meetings = new Meeting();
@@ -90,10 +90,8 @@ class MeetingController extends Controller
             $absence = new Absence();
             $absence->users_id=$item->id;
             $absence->meetings_id=$meetings->id;
+            Mail::to($item->email)->send(new MeetingInvitation($meetings));
             $absence->save();
-        }
-        foreach ($users as $variable) {
-            Mail::to($variable->email)->send(new MeetingInvitation($meetings));
         }
 
         return $this->jadwalRapat();
@@ -127,8 +125,9 @@ class MeetingController extends Controller
         $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();
         $leaders = DB::table('users')->where('users.id', $meetings->leader)->first();
         $result = DB::table('notes')->where('meetings_id', $id)->first();
+        $dokumentasi = DB::table('documentation')->where('meetings_id', $id)->get();
 
-        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders, 'result' => $result]);
+        return view('v_hasilrapatdetail', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders, 'result' => $result, 'dokumentasi' => $dokumentasi]);
     }
 
     public function deleteRapat($id)

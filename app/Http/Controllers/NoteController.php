@@ -41,7 +41,7 @@ class NoteController extends Controller
             $data;
             foreach ($request->file('lampiran') as $file) {
                 $name = time() . '.' . $file->extension();
-                $file->move(public_path() . '/files/', $name);
+                $file->move(public_path() . '/dokumentasi/', $name);
                 $data[] = $name;
             }
             for ($i = 0; $i < count($data); $i++) {

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.css">
+    @stack('scripts')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -204,6 +205,7 @@
     <script src="{{ asset('template/') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.js"></script>
+    @stack('jquery')
     <script>
         $(function() {
             $("#example1").DataTable({

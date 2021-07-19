@@ -119,7 +119,35 @@
         <div class="card-header">
             <h3 class="card-title">Dokumentasi Rapat</h3>
         </div>
-        
-
+        <div class="card-body">
+            <div class="row">
+                @foreach ($dokumentasi as $item)
+                <div class="col-sm-2">
+                  <a href="{{ url('dokumentasi/' . $item->Path) }}" data-toggle="lightbox" data-title="Dokumentasi" data-gallery="gallery">
+                    <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="white sample"/>
+                  </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
 @endsection
+
+@push('scripts')
+    <link rel="stylesheet" href="{{ asset('template/') }}/plugins/ekko-lightbox/ekko-lightbox.css">
+@endpush
+@push('jquery')
+    <script src="{{ asset('template/') }}/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+@endpush
+@push('custom-scripts')
+<script>
+    $(function () {
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+          alwaysShowClose: true
+        });
+      });
+    })
+  </script>
+@endpush

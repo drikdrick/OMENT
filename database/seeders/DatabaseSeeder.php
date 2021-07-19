@@ -64,5 +64,13 @@ class DatabaseSeeder extends Seeder
             'foto' => 'foto.jpg',
             'role'=>3,
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Notulen',
+            'email' => 'if317049@students.del.ac.id',
+            'password' => Hash::make('qpwoei123'),
+            'foto' => 'foto.jpg',
+            'role'=>3,
+        ]);
     }
 }

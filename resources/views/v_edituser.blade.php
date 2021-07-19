@@ -4,7 +4,7 @@
 @section('content')
 <div class="card card-primary card-outline">
     <div class="card-header d-flex p-0">
-        <h3 class="card-title p-3">My Profile</h5>
+        <h3 class="card-title p-3">Profile {{ $user->name }}</h5>
         <ul class="nav nav-pills ml-auto p-2">
             <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Edit Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Edit Password</a></li>
@@ -40,10 +40,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" id="updateProfile" value="Update My Profile" class="btn btn-primary float-right">
+                                <input type="submit" id="updateProfile" value="Save" class="btn btn-primary float-right">
                             </div>
                         </form>
-                        <a href="/home"><button class="btn btn-outline-danger float-right mr-2">Cancel</button></a>
+                        <a href="/home"><button class="btn btn-danger float-right mr-2">Cancel</button></a>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
@@ -67,7 +67,7 @@
                                 <input type="submit" value="Change Password" class="btn btn-primary float-right">
                             </div>
                         </form>
-                        <a href="/home"><button class="btn btn-outline-danger float-right mr-2">Cancel</button></a>
+                        <a href="/home"><button class="btn btn-danger float-right mr-2">Cancel</button></a>
                     </div>
                     <!-- /.tab-pane -->
                 </div>

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use App\Http\Controllers\MeetingController;
 use App\Models\notes;
 use App\Models\Documentations;
 use App\Http\Controllers\TasksController;
+
 
 class NoteController extends Controller
 {
@@ -38,15 +40,23 @@ class NoteController extends Controller
         $notes->save();
 
         if ($request->hasfile('lampiran')) {
-            $data;
-            foreach ($request->file('lampiran') as $file) {
-                $name = time() . '.' . $file->extension();
+            // $data=0;
+            // foreach ($request->file('lampiran') as $file) {
+            //     $name = Str::random(40) . '.' . $file->extension();
+            //     $file->move(public_path() . '/dokumentasi/', $name);
+                
+            //     $file = Documentations::firstOrNew(['meetings_id' => $request->id]);
+            //     $file->Path = $name;
+            //     $file->meetings_id = $request->id;
+            //     $file->save();
+            // }
+            for ($i = 0; $i < count($request->lampiran); $i++) {
+                $file = $request->lampiran[$i];
+                $name = Str::random(40) . '.' . $file->extension();
                 $file->move(public_path() . '/dokumentasi/', $name);
-                $data[] = $name;
-            }
-            for ($i = 0; $i < count($data); $i++) {
+                
                 $file = new Documentations();
-                $file->Path = $data[$i];
+                $file->Path = $name;
                 $file->meetings_id = $request->id;
                 $file->save();
             }

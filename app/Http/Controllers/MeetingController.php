@@ -36,6 +36,7 @@ class MeetingController extends Controller
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->select('meetings.*', 'users.name')
+        ->orderBy('meetings.id', 'desc')
         ->get();
         return view('v_jadwal', ['meetings' => $meetings]);
     }

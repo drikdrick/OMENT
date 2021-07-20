@@ -54,7 +54,7 @@
                         <i class="fas fa-pencil-alt">
                         </i>
                       </a>
-                      <a class="btn btn-danger btn-sm" href="/delete/{{ $data->id }}">
+                      <a class="btn btn-danger btn-sm" href="/delete/{{ $data->id }}" onclick="return confirm('Are you sure?')">
                         <i class="fas fa-trash">
                         </i>
                       </a>

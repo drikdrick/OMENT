@@ -8,35 +8,28 @@
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/fontawesome-free/css/all.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/') }}/dist/css/adminlte.min.css">
 
-
-    <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet"
         href="{{ asset('template/') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.css">
+    @stack('scripts')
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <!-- Site wrapper -->
     <div class="wrapper">
-        <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
-            <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
@@ -60,7 +53,6 @@
                         <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <!-- User image -->
                         <li class="user-header bg-primary">
                             <img src="{{ url('foto/' . Auth::user()->foto) }}" class="img-circle elevation-2"
                                 alt="User Image">
@@ -70,7 +62,6 @@
                                 <small>{{ Auth::user()->email }}</small>
                             </p>
                         </li>
-                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <a href="/userdetail/{{ Auth::user()->id }}"
                                 class="btn btn-default btn-flat float-left">Profile</a>
@@ -93,30 +84,23 @@
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
 
-        <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
             <a href="/" class="brand-link">
                 <img src="{{ asset('foto/') }}/nav.png" alt="OMENT" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                 <span class="brand-text font-weight-light">OMENT</span>
             </a>
 
-            <!-- Sidebar -->
             <div class="sidebar">
 
-                <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
 
                         <li class="nav-header">MAIN NAVIGATION</li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
+                            <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -125,7 +109,7 @@
                         </li>
                         @if (auth()->user()->role == 1)
                             <li class="nav-item">
-                                <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
+                                <a href="/user" class="nav-link {{ request()->is('user') || request()->is('user/*') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Users
@@ -133,14 +117,6 @@
                                 </a>
                             </li>
                         @endif
-                        <li class="nav-item">
-                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
-                                <i class="nav-icon far fa-calendar-alt"></i>
-                                <p>
-                                    Jadwal
-                                </p>
-                            </a>
-                        </li>
                         @if (auth()->user()->role <= 2)
                             <li class="nav-item">
                                 <a href="/meeting/buatrapat"
@@ -151,10 +127,18 @@
                             </li>
                         @endif
                         <li class="nav-item">
+                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('meeting/jadwal') || request()->is('meeting/jadwal/*')  ? 'active' : '' }}">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Jadwal
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/meeting/hasil"
-                                class="nav-link {{ request()->is('meeting/hasil') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('meeting/hasil') || request()->is('meeting/hasil/*') ? 'active' : '' }}">
                                 <i class="far fas fa-search nav-icon"></i>
-                                <p>Rapat</p>
+                                <p>Hasil Rapat</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -165,14 +149,10 @@
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -186,18 +166,15 @@
                             </ol>
                         </div>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
             </section>
 
-            <!-- Main content -->
             <section class="content">
 
                 @yield('content')
 
             </section>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
@@ -205,13 +182,9 @@
             <strong>Copyright &copy; TA 33TI Kelompok 10</strong> All rights reserved.
         </footer>
 
-        <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
         </aside>
-        <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/jquery/jquery.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -231,7 +204,8 @@
     <script src="{{ asset('template/') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- Page specific script -->
+    <script src="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.js"></script>
+    @stack('jquery')
     <script>
         $(function() {
             $("#example1").DataTable({
@@ -263,16 +237,13 @@
                 '<div style="padding-top:5px; display:flex;"><input type="text" id="judul1" name="field_name[]" class="form-control nn" style="flex:1;"><a href="javascript:void(0);" class="remove_button btn btn-danger">X</a></div>';
             var x = 1; //Initial field counter is 1
 
-            //Once add button is clicked
             $(addButton).click(function() {
-                //Check maximum number of input fields
                 if (x < maxField) {
                     x++; //Increment field counter
                     $(wrapper).append(fieldHTML); //Add field html
                 }
             });
 
-            //Once remove button is clicked
             $(wrapper).on('click', '.remove_button', function(e) {
                 e.preventDefault();
                 $(this).parent('div').remove(); //Remove field html
@@ -282,10 +253,8 @@
 
         function getData() {
             var l = $('.nn').length;
-            //Initialize default array
             var result = [];
             for (i = 0; i < l; i++) {
-                //Push each element to the array
                 result.push($('.nn').eq(i).val());
             }
             return result;
@@ -310,8 +279,16 @@
                 }
             });
         }
+        $(function () {
+            $('#summernote').summernote({'height' : 225,})
 
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai",
+            });
+        })
     </script>
+    @stack('custom-scripts')
 </body>
 
 </html>

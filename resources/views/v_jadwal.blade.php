@@ -63,7 +63,7 @@
                                         </i>
                                     </a>
                                     <a class="btn btn-danger btn-sm swalDefaultSuccess"
-                                        href="/meeting/deleteRapat/{{ $item->id }}">
+                                        href="/meeting/deleteRapat/{{ $item->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
                                         <i class="fas fa-trash">
                                         </i>
                                     </a>

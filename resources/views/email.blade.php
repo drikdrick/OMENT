@@ -28,7 +28,7 @@
             <td>: {{ $tempat }}</td>
         </tr>
         <tr>
-            <td>Hari</td>
+            <td>Tanggal</td>
             <td>: {{ $tanggal }}</td>
         </tr>
         <tr>

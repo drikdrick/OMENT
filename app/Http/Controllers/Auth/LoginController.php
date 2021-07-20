@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,4 +38,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // protected function credentials(Request $request){
+    //     return ['email' => $request->{$this->username()}, 'password' => $request->password, 'isActive' => true];
+    // }
+
+    // protected function attemptLogin(Request $request){
+    //     $request->merge(['isActive',true]);
+    //     return $this->guard()->attempt(
+    //         $this->credentials($request),$request->filled('remember')
+    //     );
+    // }
 }

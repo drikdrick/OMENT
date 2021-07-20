@@ -38,8 +38,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-12">
                             <div class="card card-primary card-outline">
                                     <div class="card-header">
@@ -54,6 +52,11 @@
                                 </div>
                             </div>                              
                        </div>
+                       <div class="col-12">
+                            <a href="#"><button class="btn btn-outline-primary btn-block">Download PDF</button></a>
+                       </div>
+                    </div>
+                    <div class="row">
                     </div>
                 </div>
 
@@ -124,20 +127,21 @@
                 @foreach ($dokumentasi as $item)
                 <div class="col-sm-2">
                   <a href="{{ url('dokumentasi/' . $item->Path) }}" data-toggle="lightbox" data-title="Dokumentasi" data-gallery="gallery">
-                    <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="white sample"/>
+                    <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="Dokuemntasi Rapat"/>
                   </a>
                 </div>
                 @endforeach
             </div>
         </div>
     </div>
-    
+    @if (Auth::user()->role==2)
     <div class="row">
         <div class="col-12">
             <a href="#" class="btn btn-success btn-block">Terima</a>
             <a href="#" class="btn btn-danger btn-block">Tolak</a>
         </div>
     </div>
+    @endif
 @endsection
 
 @push('scripts')

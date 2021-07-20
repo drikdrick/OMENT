@@ -46,11 +46,11 @@
                       <img src="{{ url('foto/'.$data->foto) }}" width="50px" class="table-avatar">
                     </td>
                     <td class="text-center ">
-                      <a class="btn btn-primary btn-sm" href="/userdetail/{{ $data->id }}">
+                      <a class="btn btn-primary btn-sm" href="/user/{{ $data->id }}">
                         <i class="fas fa-folder">
                         </i>
                       </a>
-                      <a class="btn btn-info btn-sm" href="/userdetail/{{ $data->id }}">
+                      <a class="btn btn-info btn-sm" href="/user/edit/{{ $data->id }}">
                         <i class="fas fa-pencil-alt">
                         </i>
                       </a>

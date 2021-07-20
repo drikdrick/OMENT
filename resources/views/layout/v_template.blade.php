@@ -100,7 +100,7 @@
 
                         <li class="nav-header">MAIN NAVIGATION</li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
+                            <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -109,7 +109,7 @@
                         </li>
                         @if (auth()->user()->role == 1)
                             <li class="nav-item">
-                                <a href="/user" class="nav-link {{ request()->is('user') ? 'active' : '' }}">
+                                <a href="/user" class="nav-link {{ request()->is('user') || request()->is('user/*') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Users
@@ -127,7 +127,7 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('jadwal') ? 'active' : '' }}">
+                            <a href="/meeting/jadwal" class="nav-link {{ request()->is('meeting/jadwal') || request()->is('meeting/jadwal/*')  ? 'active' : '' }}">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     Jadwal
@@ -136,7 +136,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="/meeting/hasil"
-                                class="nav-link {{ request()->is('meeting/hasil') ? 'active' : '' }}">
+                                class="nav-link {{ request()->is('meeting/hasil') || request()->is('meeting/hasil/*') ? 'active' : '' }}">
                                 <i class="far fas fa-search nav-icon"></i>
                                 <p>Hasil Rapat</p>
                             </a>

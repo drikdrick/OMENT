@@ -137,14 +137,14 @@
               <div class="col-md-6">
                   <select id="role" name="role" class="form-control">
                     <option value="1">Admin</option>
-                    <option value="2">Kepala Prodi</option>
+                    <option value="2">Ketua Prodi</option>
                     <option value="3">Dosen</option>
                   </select>
               </div>
           </div>
         </div>
         <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">
             {{ __('Register') }}
           </button>

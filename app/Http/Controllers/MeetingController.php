@@ -73,15 +73,13 @@ class MeetingController extends Controller
         }
 
         if ($request->hasfile('lampiran')) {
-            $data;
-            foreach ($request->file('lampiran') as $file) {
-                $name = time() . '.' . $file->extension();
+            for ($i = 0; $i < count($request->lampiran); $i++) {
+                $file = $request->lampiran[$i];
+                $name = $file->getClientOriginalName();
                 $file->move(public_path() . '/files/', $name);
-                $data[] = $name;
-            }
-            for ($i = 0; $i < count($data); $i++) {
+                
                 $file = new Attachments();
-                $file->Path = $data[$i];
+                $file->Path = $name;
                 $file->meetings_id = $meetings->id;
                 $file->save();
             }
@@ -166,6 +164,20 @@ class MeetingController extends Controller
         $meetings->minuter = $request->notulen;
         $meetings->save();
 
+        if ($request->hasfile('lampiran')) {
+            DB::table('attachments')->where('meetings_id', '=', $request->id)->delete();
+
+            for ($i = 0; $i < count($request->lampiran); $i++) {
+                $file = $request->lampiran[$i];
+                $name = $file->getClientOriginalName();
+                $file->move(public_path() . '/files/', $name);
+                
+                $file = new Attachments();
+                $file->Path = $name;
+                $file->meetings_id = $request->id;
+                $file->save();
+            }
+        }
         return $this->jadwalRapat();
     }
 

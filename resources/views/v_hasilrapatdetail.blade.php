@@ -53,7 +53,7 @@
                             </div>                              
                        </div>
                        <div class="col-12">
-                            <a href="#"><button class="btn btn-outline-primary btn-block">Download PDF</button></a>
+                            <a href="#" class="btn btn-outline-primary btn-block">Download PDF <i class="far fa-fw fa-pdf " taget="_blank"></i></a>
                        </div>
                     </div>
                     <div class="row">
@@ -85,8 +85,8 @@
                         <?php $i = 1; ?>
                         @foreach ($lampirans as $data)
                             <li>
-                                <a taget="_blank" rel="noopener noreferrer" href="{{ url('files/' . $data->Path) }}"
-                                    class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Lampiran
+                                <a rel="noopener noreferrer" href="{{ url('files/' . $data->Path) }}"
+                                    class="btn-link text-secondary"><i class="far fa-fw fa-image " taget="_blank"></i> Lampiran
                                     {{ $i++ }}</a>
                             </li>
                         @endforeach

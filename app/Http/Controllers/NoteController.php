@@ -40,6 +40,7 @@ class NoteController extends Controller
         $notes->save();
 
         if ($request->hasfile('lampiran')) {
+            DB::table('documentation')->where('meetings_id', '=', $request->id)->delete();
             // $data=0;
             // foreach ($request->file('lampiran') as $file) {
             //     $name = Str::random(40) . '.' . $file->extension();
@@ -52,7 +53,7 @@ class NoteController extends Controller
             // }
             for ($i = 0; $i < count($request->lampiran); $i++) {
                 $file = $request->lampiran[$i];
-                $name = Str::random(40) . '.' . $file->extension();
+                $name = $file->getClientOriginalName();
                 $file->move(public_path() . '/dokumentasi/', $name);
                 
                 $file = new Documentations();

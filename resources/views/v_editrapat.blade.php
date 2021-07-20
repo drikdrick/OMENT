@@ -98,8 +98,8 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <a href="/meeting/jadwal" class="btn btn-secondary btn-block">Cancel</a>
-                <input type="submit" value="Update Meeting" class="btn btn-warning btn-block">
+                <input type="submit" value="Perbaharui" class="btn btn-warning btn-block">
+                <a href="/meeting/jadwal" class="btn btn-danger btn-block">Cancel</a>
             </div>
         </div>
     </form>

@@ -131,6 +131,13 @@
             </div>
         </div>
     </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <a href="#" class="btn btn-success btn-block">Terima</a>
+            <a href="#" class="btn btn-danger btn-block">Tolak</a>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')

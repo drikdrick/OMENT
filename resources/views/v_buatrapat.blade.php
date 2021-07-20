@@ -100,8 +100,8 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <a href="#" class="btn btn-secondary btn-block">Cancel</a>
                 <input type="submit" value="Create Meeting" class="btn btn-success btn-block">
+                <a href="#" class="btn btn-danger btn-block">Cancel</a>
             </div>
         </div>
     </form>

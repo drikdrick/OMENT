@@ -18,7 +18,7 @@ class CreateNotesTable extends Migration
             $table->foreignId('users_id')->constrained('users');
             $table->foreignId('meetings_id')->constrained('meetings')->onDelete('cascade')->nullable();
             $table->longText('isi');
-            $table->integer('status');
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

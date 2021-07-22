@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="{{ asset('template/') }}/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{ asset('template/') }}/dist/css/adminlte.min.css">
     @stack('scripts')
 </head>
 
@@ -205,7 +209,10 @@
     <script src="{{ asset('template/') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
     <script src="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="{{ asset('template/') }}/plugins/jquery/jquery.min.js"></script>
+    <script src="{{ asset('template/') }}/plugins/toastr/toastr.min.js"></script>
     @stack('jquery')
+    
     <script>
         $(function() {
             $("#example1").DataTable({

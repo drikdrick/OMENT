@@ -10,6 +10,8 @@ use App\Http\Controllers\MeetingController;
 use App\Models\notes;
 use App\Models\Documentations;
 use App\Http\Controllers\TasksController;
+use App\Mail\publishHasilRapat;
+use App\Mail\rejectHasilRapat;
 
 
 class NoteController extends Controller
@@ -63,6 +65,12 @@ class NoteController extends Controller
         $notes = notes::firstOrNew(['meetings_id' => $id]);
         $notes->status=true;
         $notes->save();
+        $user = DB::table('users')->get();
+        $meeting = DB::table('meetings')->where('id', $id)->get();
+        foreach ($variable as $user) {
+            Mail::to($variable->email)->send(new publishHasilRapat);
+        }
+        return back();
     }
     public function rejectHasilRapat($id){
         $notes = notes::firstOrNew(['meetings_id' => $id]);

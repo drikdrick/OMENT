@@ -36,6 +36,9 @@ class AbsencesController extends Controller
         if (!$meetings = DB::table('meetings')->find($id)) {
             abort(404);
         }
+        if (is_null($request->dataAbsen)) {
+            abort(500, 'Daftar absen tidak boleh kosong');
+        }
         DB::table('absences')
         ->where('meetings_id', $id)
         ->update(['respon' => 0]);

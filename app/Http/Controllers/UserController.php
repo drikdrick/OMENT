@@ -36,16 +36,16 @@ class UserController extends Controller
         return view('v_userdetail', ['users' => $user, 'roles' => $role, 'meetings' => $meeting]);
     }
 
-    public function delete($id)
-    {
-        if (!$user = DB::table('users')->find($id)) {
-            abort(404);
-        }else{
-            DB::table('users')->where('id', '=', $id)->delete();
-        }
+    // public function delete($id)
+    // {
+    //     if (!$user = DB::table('users')->find($id)) {
+    //         abort(404);
+    //     }else{
+    //         DB::table('users')->where('id', '=', $id)->delete();
+    //     }
         
-        return $this->index();
-    }
+    //     return $this->index();
+    // }
 
     public function edit($id){
         if(!$userd = DB ::table('users')->find($id)){

@@ -48,5 +48,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/user',[UserController::class, 'index'] );
-    Route::get('/delete/{id}',[UserController::class, 'delete'] ); 
+    // Route::get('/delete/{id}',[UserController::class, 'delete'] ); 
 });

@@ -30,6 +30,13 @@ class MeetingController extends Controller
         ->select('meetings.*', 'users.name')
         ->where('notes.status', true)
         ->get();
+        if (Auth::user()->role==2) {
+            $meetings = DB::table('meetings')
+            ->join('users', 'meetings.minuter', '=', 'users.id')
+            ->join('notes', 'meetings.id', '=', 'notes.meetings_id')
+            ->select('meetings.*', 'users.name')
+            ->get();
+        }
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
 
@@ -109,8 +116,11 @@ class MeetingController extends Controller
             ->where('meetings.id', $id)->get();
         $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();
         $leaders = DB::table('users')->where('users.id', $meetings->leader)->first();
+        $result = DB::table('notes')->where('meetings_id', $id)->first();
+        $dokumentasi = DB::table('documentation')->where('meetings_id', $id)->get();
+        $now = Carbon::now();
 
-        return view('v_incomingrapat', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders]);
+        return view('v_incomingrapat', ['meetings' => $meetings, 'lampirans' => $lampiran, 'topik' => $topik, 'notulen' => $notulens, 'leaders' => $leaders, 'result' => $result, 'dokumentasi' => $dokumentasi, 'now'=>$now]);
     }
 
     public function detailHasilRapat($id)

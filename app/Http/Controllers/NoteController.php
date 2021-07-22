@@ -56,7 +56,17 @@ class NoteController extends Controller
 
         $home = new MeetingController;
 
-        return $home->detailHasilRapat($request->id);
+        return $home->detailJadwalRapat($request->id);
+    }
 
+    public function acceptHasilRapat($id){
+        $notes = notes::firstOrNew(['meetings_id' => $id]);
+        $notes->status=true;
+        $notes->save();
+    }
+    public function rejectHasilRapat($id){
+        $notes = notes::firstOrNew(['meetings_id' => $id]);
+        $notes->status=false;
+        $notes->save();
     }
 }

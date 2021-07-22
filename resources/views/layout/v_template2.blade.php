@@ -63,7 +63,7 @@
                             </p>
                         </li>
                         <li class="user-footer">
-                            <a href="/userdetail/{{ Auth::user()->id }}"
+                            <a href="/user/{{ Auth::user()->id }}"
                                 class="btn btn-default btn-flat float-left">Profile</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf

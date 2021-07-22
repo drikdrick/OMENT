@@ -38,8 +38,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-12">
                             <div class="card card-primary card-outline">
                                     <div class="card-header">
@@ -54,18 +52,23 @@
                                 </div>
                             </div>                              
                        </div>
+                       <div class="col-12">
+                            <a href="#" class="btn btn-outline-primary btn-block">Download PDF <i class="far fa-fw fa-pdf " taget="_blank"></i></a>
+                       </div>
+                    </div>
+                    <div class="row">
                     </div>
                 </div>
 
                 <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                     <div class="text-muted">
                         <p class="text-sm">Ketua Rapat
-                            <a href="/userdetail/{{ $meetings->leader }}">
+                            <a href="/user/{{ $meetings->leader }}">
                                 <b class="d-block">{{ $leaders->name }}</b>
                             </a>
                         </p>
                         <p class="text-sm">Notulis
-                            <a href="/userdetail/{{ $meetings->minuter }}">
+                            <a href="/user/{{ $meetings->minuter }}">
                                 <b class="d-block">{{ $notulen->name }}</b>
                             </a>
                         </p>
@@ -82,8 +85,8 @@
                         <?php $i = 1; ?>
                         @foreach ($lampirans as $data)
                             <li>
-                                <a taget="_blank" rel="noopener noreferrer" href="{{ url('files/' . $data->Path) }}"
-                                    class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Lampiran
+                                <a rel="noopener noreferrer" href="{{ url('files/' . $data->Path) }}"
+                                    class="btn-link text-secondary"><i class="far fa-fw fa-image " taget="_blank"></i> Lampiran
                                     {{ $i++ }}</a>
                             </li>
                         @endforeach
@@ -124,20 +127,21 @@
                 @foreach ($dokumentasi as $item)
                 <div class="col-sm-2">
                   <a href="{{ url('dokumentasi/' . $item->Path) }}" data-toggle="lightbox" data-title="Dokumentasi" data-gallery="gallery">
-                    <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="white sample"/>
+                    <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="Dokuemntasi Rapat"/>
                   </a>
                 </div>
                 @endforeach
             </div>
         </div>
     </div>
-    
+    @if (Auth::user()->role==2)
     <div class="row">
         <div class="col-12">
             <a href="#" class="btn btn-success btn-block">Terima</a>
             <a href="#" class="btn btn-danger btn-block">Tolak</a>
         </div>
     </div>
+    @endif
 @endsection
 
 @push('scripts')

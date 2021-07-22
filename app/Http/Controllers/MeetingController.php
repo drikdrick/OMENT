@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TasksController;
 use Carbon\Carbon;
 use App\Mail\MeetingInvitation;
+use App\Mail\MeetingUpdated;
 use Illuminate\Support\Facades\Mail;
 
 class MeetingController extends Controller
@@ -27,6 +28,7 @@ class MeetingController extends Controller
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->join('notes', 'meetings.id', '=', 'notes.meetings_id')
         ->select('meetings.*', 'users.name')
+        ->where('notes.status', true)
         ->get();
         return view('v_hasilrapat', ['meetings' => $meetings]);
     }
@@ -73,15 +75,13 @@ class MeetingController extends Controller
         }
 
         if ($request->hasfile('lampiran')) {
-            $data;
-            foreach ($request->file('lampiran') as $file) {
-                $name = time() . '.' . $file->extension();
+            for ($i = 0; $i < count($request->lampiran); $i++) {
+                $file = $request->lampiran[$i];
+                $name = $file->getClientOriginalName();
                 $file->move(public_path() . '/files/', $name);
-                $data[] = $name;
-            }
-            for ($i = 0; $i < count($data); $i++) {
+                
                 $file = new Attachments();
-                $file->Path = $data[$i];
+                $file->Path = $name;
                 $file->meetings_id = $meetings->id;
                 $file->save();
             }
@@ -165,6 +165,34 @@ class MeetingController extends Controller
         $meetings->leader = Auth::user()->id;
         $meetings->minuter = $request->notulen;
         $meetings->save();
+
+        if ($request->hasfile('lampiran')) {
+            DB::table('attachments')->where('meetings_id', '=', $request->id)->delete();
+
+            for ($i = 0; $i < count($request->lampiran); $i++) {
+                $file = $request->lampiran[$i];
+                $name = $file->getClientOriginalName();
+                $file->move(public_path() . '/files/', $name);
+                
+                $file = new Attachments();
+                $file->Path = $name;
+                $file->meetings_id = $request->id;
+                $file->save();
+            }
+        }
+        
+        $users = DB::table('users')
+        ->where('role', '=', '3')
+        ->orderBy('name', 'asc')
+        ->get();
+        DB::table('absences')->where('meetings_id', '=', $request->id)->delete();
+        foreach ($users as $item) {
+            $absence = new Absence();
+            $absence->users_id=$item->id;
+            $absence->meetings_id=$meetings->id;
+            Mail::to($item->email)->send(new MeetingUpdated($meetings));
+            $absence->save();
+        }
 
         return $this->jadwalRapat();
     }

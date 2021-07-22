@@ -37,22 +37,14 @@ class NoteController extends Controller
         $notes->meetings_id = $request->id;
         $notes->users_id = Auth::user()->id;
         $notes->isi=$request->isi;
+        $notes->status=null;
         $notes->save();
 
         if ($request->hasfile('lampiran')) {
-            // $data=0;
-            // foreach ($request->file('lampiran') as $file) {
-            //     $name = Str::random(40) . '.' . $file->extension();
-            //     $file->move(public_path() . '/dokumentasi/', $name);
-                
-            //     $file = Documentations::firstOrNew(['meetings_id' => $request->id]);
-            //     $file->Path = $name;
-            //     $file->meetings_id = $request->id;
-            //     $file->save();
-            // }
+            DB::table('documentation')->where('meetings_id', '=', $request->id)->delete();
             for ($i = 0; $i < count($request->lampiran); $i++) {
                 $file = $request->lampiran[$i];
-                $name = Str::random(40) . '.' . $file->extension();
+                $name = $file->getClientOriginalName();
                 $file->move(public_path() . '/dokumentasi/', $name);
                 
                 $file = new Documentations();

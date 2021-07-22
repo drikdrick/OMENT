@@ -51,9 +51,6 @@ class UserController extends Controller
         if(!$userd = DB ::table('users')->find($id)){
             abort(404);
         }
-        if(Auth::user()->role!=1 || Auth::user()->id!=$id ){
-            abort(403);
-        }
 
         $user = DB::table('users')->find($id);
 

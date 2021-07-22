@@ -55,11 +55,21 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Lampiran</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input name="lampiran[]" type="file" class="custom-file-input" id="exampleInputFile"
+                                        multiple>
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-{{-- 
-            <div class="col-md-6">
+
+            {{-- <div class="col-md-12">
                 <div class="card card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">Tambahan</h3>
@@ -81,26 +91,13 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="exampleInputFile">Lampiran</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input name="lampiran[]" type="file" class="custom-file-input" id="exampleInputFile"
-                                        multiple>
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div> --}}
+            </div> --}}
         </div>
-        <div class="row">
-            <div class="col-12">
-                <input type="submit" value="Perbaharui" class="btn btn-warning btn-block">
-                <a href="/meeting/jadwal" class="btn btn-danger btn-block">Cancel</a>
-            </div>
+        <div class="col-12">
+            <input type="submit" value="Perbaharui" class="btn btn-warning btn-block">
+            <a href="/meeting/jadwal" class="btn btn-danger btn-block">Cancel</a>
         </div>
     </form>
 @endsection

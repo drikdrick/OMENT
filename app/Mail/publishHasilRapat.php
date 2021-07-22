@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class publishHasilRapat extends Mailable
+class publishHasilRapat extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

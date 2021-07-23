@@ -141,12 +141,12 @@
                                 <p>Hasil Rapat</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="/absen" class="nav-link">
                                 <i class="far fas fa-book nav-icon"></i>
                                 <p>Absensi</p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>

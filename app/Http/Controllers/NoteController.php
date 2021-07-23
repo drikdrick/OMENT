@@ -12,6 +12,7 @@ use App\Models\Documentations;
 use App\Http\Controllers\TasksController;
 use App\Mail\publishHasilRapat;
 use App\Mail\rejectHasilRapat;
+use Illuminate\Support\Facades\Mail;
 
 
 class NoteController extends Controller
@@ -66,9 +67,9 @@ class NoteController extends Controller
         $notes->status=true;
         $notes->save();
         $user = DB::table('users')->get();
-        $meeting = DB::table('meetings')->where('id', $id)->get();
-        foreach ($variable as $user) {
-            Mail::to($variable->email)->send(new publishHasilRapat);
+        $meeting = DB::table('meetings')->where('id', $id)->first();
+        foreach ($user as $user) {
+            Mail::to($user->email)->send(new publishHasilRapat($meeting));
         }
         return back();
     }
@@ -76,5 +77,14 @@ class NoteController extends Controller
         $notes = notes::firstOrNew(['meetings_id' => $id]);
         $notes->status=false;
         $notes->save();
+        
+        $user = DB::table('meetings')
+        ->join('users', 'meetings.minuter', '=', 'users.id')
+        ->where('meetings_id', $id)
+        ->select('meetings.*', 'users.email')
+        ->get();
+
+        Mail::to($user->email)->send(new publishHasilRapat);
+        return back();
     }
 }

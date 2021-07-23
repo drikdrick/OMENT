@@ -94,11 +94,11 @@
                     @endif
                     <div>
                     
-                    @if ($meetings->minuter==Auth::user()->id)
+                    {{-- @if ($meetings->minuter==Auth::user()->id)
                     <a href="/meeting/notulensi/{{ $meetings->id }}" class="btn btn-sm btn-primary">Catatan</a>
                     
                     <a href="/absen/buatabsen/{{ $meetings->id }}" class="btn btn-sm btn-warning">Absensi</a>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>

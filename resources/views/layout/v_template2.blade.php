@@ -141,12 +141,12 @@
                                 <p>Hasil Rapat</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="/absen" class="nav-link">
                                 <i class="far fas fa-book nav-icon"></i>
                                 <p>Absensi</p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>
@@ -212,7 +212,7 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                // "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                "buttons": ["copy", "csv", "excel", "pdf", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,

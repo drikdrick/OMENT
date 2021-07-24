@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\Meeting;
 use Illuminate\Support\Facades\DB;
 
-class MeetingInvitation extends Mailable 
+class MeetingInvitation extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

@@ -94,11 +94,11 @@
                     @endif
                     <div>
                     
-                    @if ($meetings->minuter==Auth::user()->id)
+                    {{-- @if ($meetings->minuter==Auth::user()->id)
                     <a href="/meeting/notulensi/{{ $meetings->id }}" class="btn btn-sm btn-primary">Catatan</a>
                     
                     <a href="/absen/buatabsen/{{ $meetings->id }}" class="btn btn-sm btn-warning">Absensi</a>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>
@@ -134,10 +134,10 @@
             </div>
         </div>
     </div>
-    @if (Auth::user()->role==2)
+    @if (Auth::user()->role==2 && !$result->status)
     <div class="row">
         <div class="col-12">
-            <a href="#" class="btn btn-success btn-block">Terima</a>
+            <a href="terimaHasilRapat/{{ $meetings->id }}" class="btn btn-success btn-block">Terima</a>
             <a href="#" class="btn btn-danger btn-block">Tolak</a>
         </div>
     </div>

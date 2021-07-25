@@ -91,7 +91,7 @@
                     @endif
                     <div>
                     
-                    @if ($meetings->minuter==Auth::user()->id && !$result->isi)
+                    @if ($meetings->minuter==Auth::user()->id)
                         <a href="/meeting/notulensi/{{ $meetings->id }}"><button class="btn btn-sm btn-primary" @if($now->toDateTimeString()<=$meetings->tanggal.' '.$meetings->waktu_mulai)
                             disabled
                         @endif>Catatan</button></a>

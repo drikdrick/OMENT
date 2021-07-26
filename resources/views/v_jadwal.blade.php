@@ -53,7 +53,7 @@
                             </td>
                             <td class="project-actions text-right">
                                 <a class="btn btn-primary btn-sm" href="/meeting/jadwal/{{ $item->id }}">
-                                    <i class="fas fa-folder">
+                                    <i class="fas fa-eye">
                                     </i>
                                 </a>
                                 

@@ -138,7 +138,7 @@
     <div class="row">
         <div class="col-12">
             <a href="terimaHasilRapat/{{ $meetings->id }}" class="btn btn-success btn-block">Terima</a>
-            <a href="#" class="btn btn-danger btn-block">Tolak</a>
+            <a href="tolakHasilRapat/{{ $meetings->id }}" class="btn btn-danger btn-block">Tolak</a>
         </div>
     </div>
     @endif

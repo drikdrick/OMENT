@@ -62,7 +62,7 @@
                                                                     <textarea name="pesan" id="pesan" cols="65" rows="5" required></textarea>
                                                                 </div>
                                                                 <div class="modal-footer justify-content-between">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
                                                                     <button type="submit" class="btn btn-primary">
                                                                         Kirim
                                                                     </button>

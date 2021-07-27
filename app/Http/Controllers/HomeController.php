@@ -46,22 +46,22 @@ class HomeController extends Controller
         return $this->index();        
     }
 
-    public function tolakUndangan($id){
+    public function tolakUndangan(Request $request){
         $absensi = DB::table('absences')
         ->where('users_id', Auth::user()->id)
-        ->where('meetings_id', $id)
+        ->where('meetings_id', $request->id)
         ->update(['respon'=>0, 'updated_at'=>now()]);
 
         $meeting = DB::table('meetings')
         ->join('users', 'meetings.leader', '=', 'users.id')
-        ->where('meetings.id', $id)
+        ->where('meetings.id', $request->id)
         ->select('meetings.*', 'users.email')
         ->first();
 
         $user = DB::table('users')
         ->where('id', Auth::user()->id)
         ->first();
-        Mail::to($meeting->email)->send(new izinRapat($user, $meeting));
+        Mail::to($meeting->email)->send(new izinRapat($user, $meeting, $request->pesan));
 
 
         return $this->index();    

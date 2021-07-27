@@ -27,6 +27,14 @@
                 : {{ $email }}
             </td>
         </tr>
+        <tr>
+            <td>
+                Pesan
+            </td>
+            <td>
+                : {{ $pesan }}
+            </td>
+        </tr>
     </table>
     <br>
     <p>Tidak dapat menghadiri rapat dengan deksripsi sebagai berikut:</p>

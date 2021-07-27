@@ -29,7 +29,9 @@ class izinRapat extends Mailable implements ShouldQueue
     public $namaDosen;
     public $emailDosen;
 
-    public function __construct($users, $meetings)
+    public $msg;
+
+    public function __construct($users, $meetings, $pesan)
     {
         $ketuaRapat = DB::table('users')->where('id', $meetings->leader)->first();
         $notulisRapat = DB::table('users')->where('id', $meetings->minuter)->first();
@@ -42,6 +44,7 @@ class izinRapat extends Mailable implements ShouldQueue
         $this->notulis = $notulisRapat->name;
         $this->namaDosen = $users->name;
         $this->emailDosen = $users->email;
+        $this->msg = $pesan;
     }
 
     /**
@@ -64,6 +67,7 @@ class izinRapat extends Mailable implements ShouldQueue
                          'notulis' => $this->notulis,
                          'nama' => $this->namaDosen,
                          'email' => $this->emailDosen,
+                         'pesan' => $this->msg,
                      ]);
     }
 }

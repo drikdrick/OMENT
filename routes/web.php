@@ -20,7 +20,7 @@ use App\Http\Controllers\AbsencesController;
 
 Route::get('/',[HomeController::class, 'index'] );
 Route::get('/undangan/terimaUndangan/{id}', [HomeController::class, 'terimaUndangan']);
-Route::get('/undangan/tolakUndangan/{id}', [HomeController::class, 'tolakUndangan']);
+Route::post('/undangan/tolakUndangan', [HomeController::class, 'tolakUndangan']);
 
 Route::get('/meeting/buatrapat', [MeetingController::class, 'buatRapat']);
 Route::get('/meeting/anggota/{id}', [MeetingController::class, 'anggotaRapat']);

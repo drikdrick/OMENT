@@ -43,7 +43,7 @@ Route::get('/absen/buatabsen/{id}', [AbsencesController::class, 'buatAbsensi']);
 Route::post('/absen/input/{id}', [AbsencesController::class, 'inputAbsensi']);
 
 Route::get('meeting/hasil/terimaHasilRapat/{id}', [NoteController::class, 'acceptHasilRapat']);
-Route::post('tolakHasilRapat/{id}', [NoteController::class, 'rejectHasilRapat']);
+Route::get('meeting/hasil/tolakHasilRapat/{id}', [NoteController::class, 'rejectHasilRapat']);
 
 Auth::routes();
 

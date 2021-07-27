@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Absence;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\izinRapat;
 
 class HomeController extends Controller
 {
@@ -49,6 +51,18 @@ class HomeController extends Controller
         ->where('users_id', Auth::user()->id)
         ->where('meetings_id', $id)
         ->update(['respon'=>0, 'updated_at'=>now()]);
+
+        $meeting = DB::table('meetings')
+        ->join('users', 'meetings.leader', '=', 'users.id')
+        ->where('meetings.id', $id)
+        ->select('meetings.*', 'users.email')
+        ->first();
+
+        $user = DB::table('users')
+        ->where('id', Auth::user()->id)
+        ->first();
+        Mail::to($meeting->email)->send(new izinRapat($user, $meeting));
+
 
         return $this->index();    
     }

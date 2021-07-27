@@ -28,12 +28,16 @@ class MeetingController extends Controller
         ->join('users', 'meetings.minuter', '=', 'users.id')
         ->join('notes', 'meetings.id', '=', 'notes.meetings_id')
         ->select('meetings.*', 'users.name')
+        ->orderBy('meetings.tanggal', 'desc')
+        ->orderBy('meetings.waktu_mulai', 'desc')
         ->where('notes.status', true)
         ->get();
         if (Auth::user()->role==2) {
             $meetings = DB::table('meetings')
             ->join('users', 'meetings.minuter', '=', 'users.id')
             ->join('notes', 'meetings.id', '=', 'notes.meetings_id')
+            ->orderBy('meetings.tanggal', 'desc')
+            ->orderBy('meetings.waktu_mulai', 'desc')
             ->select('meetings.*', 'users.name')
             ->get();
         }
@@ -44,8 +48,10 @@ class MeetingController extends Controller
     {
         $meetings = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
+        // ->join('notes', 'meetings.id', '=', )
         ->select('meetings.*', 'users.name')
-        ->orderBy('meetings.id', 'desc')
+        ->orderBy('meetings.tanggal', 'desc')
+        ->orderBy('meetings.waktu_mulai', 'desc')
         ->get();
         return view('v_jadwal', ['meetings' => $meetings]);
     }

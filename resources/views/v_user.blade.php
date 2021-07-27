@@ -47,7 +47,7 @@
                     </td>
                     <td class="text-center ">
                       <a class="btn btn-primary btn-sm" href="/user/{{ $data->id }}">
-                        <i class="fas fa-folder">
+                        <i class="fas fa-eye">
                         </i>
                       </a>
                       <a class="btn btn-info btn-sm" href="/user/edit/{{ $data->id }}">

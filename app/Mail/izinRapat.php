@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\Meeting;
 use Illuminate\Support\Facades\DB;
 
-class rejectHasilRapat extends Mailable implements ShouldQueue
+class izinRapat extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -26,7 +26,10 @@ class rejectHasilRapat extends Mailable implements ShouldQueue
     public $waktu;
     public $tempat;
 
-    public function __construct($meetings)
+    public $namaDosen;
+    public $emailDosen;
+
+    public function __construct($users, $meetings)
     {
         $ketuaRapat = DB::table('users')->where('id', $meetings->leader)->first();
         $notulisRapat = DB::table('users')->where('id', $meetings->minuter)->first();
@@ -37,6 +40,8 @@ class rejectHasilRapat extends Mailable implements ShouldQueue
         $this->tempat = $meetings->place;
         $this->ketua = $ketuaRapat->name;
         $this->notulis = $notulisRapat->name;
+        $this->namaDosen = $users->name;
+        $this->emailDosen = $users->email;
     }
 
     /**
@@ -47,7 +52,7 @@ class rejectHasilRapat extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->from('omentdel@gmail.com')
-                    ->view('emailRejection')
+                    ->view('izinRapat')
                     ->with(
                      [
                          'id' => $this->id,
@@ -57,6 +62,8 @@ class rejectHasilRapat extends Mailable implements ShouldQueue
                          'tempat' => $this->tempat,
                          'ketua' => $this->ketua,
                          'notulis' => $this->notulis,
+                         'nama' => $this->namaDosen,
+                         'email' => $this->emailDosen,
                      ]);
     }
 }

@@ -80,11 +80,11 @@ class NoteController extends Controller
         
         $user = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
-        ->where('meetings_id', $id)
+        ->where('meetings.id', $id)
         ->select('meetings.*', 'users.email')
-        ->get();
+        ->first();
 
-        Mail::to($user->email)->send(new publishHasilRapat);
+        Mail::to($user->email)->send(new rejectHasilRapat($user));
         return back();
     }
 }

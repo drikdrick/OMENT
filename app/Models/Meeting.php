@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon; 
 
 class Meeting extends Model
 {
@@ -23,4 +24,8 @@ class Meeting extends Model
         'created_at',
         'created_by'
     ];
+
+    // public function getTanggaAtribute(){
+    //     return Carbon::parse($this->attributes['tanggal'])->translatedFormat('l, d F Y');
+    // }
 }

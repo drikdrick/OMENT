@@ -56,8 +56,8 @@
             <td>: {{ $tempat }}</td>
         </tr>
         <tr>
-            <td>Tanggal</td>
-            <td>: {{ $tanggal }}</td>
+            <td>Hari/Tanggal</td>
+            <td>: {{\Carbon\Carbon::parse($tanggal)->translatedFormat('l, d F Y')}}</td>
         </tr>
         <tr>
             <td>Waktu</td>

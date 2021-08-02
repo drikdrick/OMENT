@@ -14,8 +14,8 @@ use Carbon\Carbon;
 use App\Mail\MeetingInvitation;
 use App\Mail\MeetingUpdated;
 use Illuminate\Support\Facades\Mail;
-use Dompdf\Dompdf;
-
+use Barryvdh\DomPDF\ServiceProvider;
+use PDF;
 
 class MeetingController extends Controller
 {
@@ -227,6 +227,24 @@ class MeetingController extends Controller
     }
 
     public function printPdf($id){
-        return view('mom');
+        if (!$meetings = DB::table('meetings')->find($id)) {
+            abort(404);
+        }
+        $meetings = DB::table('meetings')->where('meetings.id', $id)->first();
+        // $day = Carbon::parse($$meetings->tanggal)->format('l');
+        $topics = DB::table('topics')->join('meetings', 'meetings.id', '=', 'topics.meeting_id')
+            ->where('meetings.id', $id)->get();
+        $notulens = DB::table('users')->where('users.id', $meetings->minuter)->first();
+        $leaders = DB::table('users')->where('users.id', $meetings->leader)->first();
+        $results = DB::table('notes')->where('meetings_id', $id)->first();
+        $documentations = DB::table('documentation')->where('meetings_id', $id)->get();
+        $member = DB::table('absences')
+        ->join('users', 'absences.users_id', '=', 'users.id')
+        ->select('absences.*', 'users.name')
+        ->where('absences.meetings_id', $id)
+        ->where('absences.respon', 2)
+        ->get();
+
+        return view('mom', ['meeting' => $meetings, 'topik' => $topics, 'notulen' => $notulens, 'leader' => $leaders, 'result' => $results, 'dokumentasi' => $documentations, 'anggota' => $member]);
     }
 }

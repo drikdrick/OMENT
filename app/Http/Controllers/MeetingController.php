@@ -14,6 +14,8 @@ use Carbon\Carbon;
 use App\Mail\MeetingInvitation;
 use App\Mail\MeetingUpdated;
 use Illuminate\Support\Facades\Mail;
+use Dompdf\Dompdf;
+
 
 class MeetingController extends Controller
 {
@@ -222,5 +224,9 @@ class MeetingController extends Controller
         ->get();
 
         return view('v_anggotaRapat', ['anggota'=>$anggota]);
+    }
+
+    public function printPdf($id){
+        return view('mom');
     }
 }

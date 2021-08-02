@@ -20,10 +20,10 @@ use App\Http\Controllers\PdfController;
 
 
 Route::get('/',[HomeController::class, 'index'] );
-
 Route::get('/meeting/anggota/{id}', [MeetingController::class, 'anggotaRapat']);
 Route::get('/meeting/hasil',[MeetingController::class, 'hasilRapat'] );
 Route::get('/meeting/hasil/{id}',[MeetingController::class, 'detailHasilRapat'] );
+Route::get('/meeting/hasil/download/{id}',[MeetingController::class, 'printPdf'] );
 Route::get('/meeting/jadwal',[MeetingController::class, 'jadwalRapat'] );
 Route::get('/meeting/jadwal/{id}',[MeetingController::class, 'detailJadwalRapat'] );
 Route::get('/user/{id}',[UserController::class, 'detail'] );
@@ -51,7 +51,7 @@ Route::middleware(['auth', 'kaprodi'])->group(function () {
     Route::get('meeting/hasil/tolakHasilRapat/{id}', [NoteController::class, 'rejectHasilRapat']);
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'dosen'])->group(function () {
     // Route::get('/absen', [AbsencesController::class, 'index']);
     Route::get('/absen/buatabsen/{id}', [AbsencesController::class, 'buatAbsensi']);
     Route::post('/absen/input/{id}', [AbsencesController::class, 'inputAbsensi']);

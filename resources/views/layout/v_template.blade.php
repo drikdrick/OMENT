@@ -117,7 +117,7 @@
                                 </a>
                             </li>
                         @endif
-                        @if (auth()->user()->role <= 2)
+                        @if (auth()->user()->role == 2)
                             <li class="nav-item">
                                 <a href="/meeting/buatrapat"
                                     class="nav-link {{ request()->is('meeting/buatrapat') ? 'active' : '' }}">

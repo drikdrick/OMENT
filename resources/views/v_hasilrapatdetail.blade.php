@@ -53,7 +53,7 @@
                             </div>                              
                        </div>
                        <div class="col-12">
-                            <a href="#" class="btn btn-outline-primary btn-block">Download PDF <i class="far fa-fw fa-pdf " taget="_blank"></i></a>
+                            <a href="download/{{ $meetings->id }}" target="blank" class="btn btn-outline-primary btn-block">Convert to PDF <i class="far fa-fw fa-pdf " taget="_blank"></i></a>
                        </div>
                     </div>
                     <div class="row">

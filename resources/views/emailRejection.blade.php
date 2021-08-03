@@ -37,7 +37,8 @@
         </tr>
     </table>
     <br>
-    <p>Tidak disetujui oleh Ketua Prodi untuk dipublish</p>
+    <p>Tidak disetujui oleh Ketua Prodi untuk dipublish, dengan komentar sebagai berikut:</p>
+    <p>"{{ $pesan }}"</p>
     <p>Harap Bapak/Ibu membuka kembali sistem untuk memperbaiki hasil rapat di <a href="http://127.0.0.1:8000/meeting/jadwal/{{ $id }}">sini</a>. </p>
     
     <br>

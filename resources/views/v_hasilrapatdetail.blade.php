@@ -134,11 +134,39 @@
             </div>
         </div>
     </div>
-    @if (Auth::user()->role==2 && !$result->status)
+    @if (Auth::user()->role==2 && is_null($result->status))
     <div class="row">
         <div class="col-12">
             <a href="terimaHasilRapat/{{ $meetings->id }}" class="btn btn-success btn-block">Terima</a>
-            <a href="tolakHasilRapat/{{ $meetings->id }}" class="btn btn-danger btn-block">Tolak</a>
+            {{-- <a href="tolakHasilRapat/{{ $meetings->id }}" class="btn btn-danger btn-block">Tolak</a> --}}
+            <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#modal-default">
+                Tolak
+            </button>
+        </div>
+        <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h4 class="modal-title">Komentar</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="POST" action="tolakHasilRapat">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="text" value="{{ $item->meetings_id }}" name="id" hidden>
+                        <textarea name="pesan" id="pesan" cols="65" rows="5" required></textarea>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">
+                            Kirim
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     @endif

@@ -73,18 +73,18 @@ class NoteController extends Controller
         }
         return back();
     }
-    public function rejectHasilRapat($id){
-        $notes = notes::firstOrNew(['meetings_id' => $id]);
+    public function rejectHasilRapat(Request $request){
+        $notes = notes::firstOrNew(['meetings_id' => $request->id]);
         $notes->status=false;
         $notes->save();
         
         $user = DB::table('meetings')
         ->join('users', 'meetings.minuter', '=', 'users.id')
-        ->where('meetings.id', $id)
+        ->where('meetings.id', $request->id)
         ->select('meetings.*', 'users.email')
         ->first();
 
-        Mail::to($user->email)->send(new rejectHasilRapat($user));
+        Mail::to($user->email)->send(new rejectHasilRapat($user, $request->pesan));
         return back();
     }
 }

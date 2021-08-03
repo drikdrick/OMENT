@@ -48,7 +48,7 @@ Route::middleware(['auth', 'kaprodi'])->group(function () {
     Route::post('/updateRapat',[MeetingController::class, 'updateRapat'] );
 
     Route::get('meeting/hasil/terimaHasilRapat/{id}', [NoteController::class, 'acceptHasilRapat']);
-    Route::get('meeting/hasil/tolakHasilRapat/{id}', [NoteController::class, 'rejectHasilRapat']);
+    Route::post('meeting/hasil/tolakHasilRapat', [NoteController::class, 'rejectHasilRapat']);
 });
 
 Route::middleware(['auth', 'dosen'])->group(function () {

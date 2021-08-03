@@ -121,10 +121,12 @@
                         <p><strong>Notulen Rapat</strong></p>
                         {!! $result->isi !!}
                         <br>
-                        <p><strong>Dokumentasi Rapat</strong></p>
-                        @foreach ($dokumentasi as $item)
-                            <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="Dokuemntasi Rapat" width="50%"/>
-                        @endforeach
+                        <div>
+                            <p><strong>Dokumentasi Rapat</strong></p>
+                            @foreach ($dokumentasi as $item)
+                                <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="Dokuemntasi Rapat" width="50%"/>
+                            @endforeach
+                        </div>
                     </div>
                 </td>
             </tr>

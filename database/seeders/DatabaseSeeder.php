@@ -26,16 +26,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Fedrick Siagian',
-            'email' => 'superiorsiagian@gmail.com',
+            'name' => 'Admin',
+            'email' => 'admin@oment.com',
             'password' => Hash::make('qpwoei123'),
             'foto' => 'Foto2.jpg',
             'role'=>1,
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Hernawati Samosir',
-            'email' => 'test@gmail.com',
+            'name' => 'Fedrick Sulaiman Siagian',
+            'email' => 'superiorsiagian@gmail.com',
             'password' => Hash::make('qpwoei123'),
             'foto' => 'foto.jpg',
             'role'=>2,
@@ -59,14 +59,6 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'David Simatupang',
-            'email' => 'fedricks.siagian@gmail.com',
-            'password' => Hash::make('qpwoei123'),
-            'foto' => 'foto.jpg',
-            'role'=>3,
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Notulen',
             'email' => 'if317049@students.del.ac.id',
             'password' => Hash::make('qpwoei123'),
             'foto' => 'foto.jpg',

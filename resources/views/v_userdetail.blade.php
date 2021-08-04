@@ -4,7 +4,7 @@
 @section('content')
 <a href="/user" class="btn btn-sm btn-primary mb-1">Back</a>
 @if ($users->id==Auth::user()->id)
-<a href="edit/{{ $users->id }}" class="btn btn-sm btn-warning mb-1">Edit</a>
+<a href="/user.updateProfile" class="btn btn-sm btn-warning mb-1">Edit</a>
 @endif
 <div>
     <!-- Widget: user widget style 1 -->

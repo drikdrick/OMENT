@@ -56,9 +56,9 @@ class NoteController extends Controller
                 $file->save();
             }
         }
-
+        flash('MoM berhasil dibuat.')->success();
         $home = new MeetingController;
-
+        
         return $home->detailJadwalRapat($request->id);
     }
 
@@ -71,6 +71,7 @@ class NoteController extends Controller
         foreach ($user as $user) {
             Mail::to($user->email)->send(new publishHasilRapat($meeting));
         }
+        flash('MoM berhasil dipublikasi.')->success();
         return back();
     }
     public function rejectHasilRapat(Request $request){
@@ -85,6 +86,7 @@ class NoteController extends Controller
         ->first();
 
         Mail::to($user->email)->send(new rejectHasilRapat($user, $request->pesan));
+        flash('MoM telah ditolak.')->error();
         return back();
     }
 }

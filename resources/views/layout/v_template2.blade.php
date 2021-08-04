@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.css">
     @stack('scripts')
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -170,7 +171,7 @@
             </section>
 
             <section class="content">
-
+                @include('sweetalert::alert')
                 @yield('content')
 
             </section>
@@ -212,7 +213,7 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                // "buttons": ["copy", "csv", "excel", "pdf", "print"]
+                "buttons": ["copy", "csv", "excel", "pdf", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,
@@ -289,6 +290,9 @@
         })
     </script>
     @stack('custom-scripts')
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}    
 </body>
 
 </html>

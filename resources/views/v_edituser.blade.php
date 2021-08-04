@@ -19,7 +19,7 @@
             <div class="col-8">
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
-                            <form action="editProfile" method="POST" enctype="multipart/form-data">
+                            <form action="/user/edit/editProfile" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Nama</label>
@@ -29,6 +29,11 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}" required>
+                                @error('email')
+                                <span class="alert-danger" role="alert">
+                                    {{ $message }}
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Foto</label>
@@ -38,6 +43,11 @@
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
                                 </div>
+                                @error('lampiran')
+                                <span class="alert-danger" role="alert">
+                                    {{ $message }}
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="submit" id="updateProfile" value="Save" class="btn btn-primary float-right">
@@ -47,24 +57,39 @@
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                        <form action="editPassword" method="POST" id="editPasswordForm">
+                        <form action="/user/edit/editPassword" method="POST" id="editPasswordForm">
                             @csrf
                             <div class="form-group">
                                 <label for="password">Password Lama</label>
                                 <input type="password" name="password" id="password" class="form-control" required>
+                                @error('password')
+                                <span class="alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                                 <input type="textarea" name="id" id="id" class="form-control" value="{{ $user->id }}" required hidden>
                             </div>
                             @csrf
                             <div class="form-group">
                                 <label for="passwordBaru">Password Baru</label>
                                 <input type="password" name="passwordBaru" id="passwordBaru" class="form-control" required>
+                                @error('passwordBaru')
+                                <span class="alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="konfirmPassword">Konfirmasi Password</label>
-                                <input type="password" name="konfirmPassword" id="konfirmPassword" class="form-control" required>
+                                <input type="password" name="passwordBaru_confirmation" id="passwordBaru_confirmation" class="form-control" required>
+                                @error('passwordBaru_confirmation')
+                                <span class="alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Change Password" class="btn btn-primary float-right">
+                                <input type="submit" value="Ganti Password" class="btn btn-primary float-right">
                             </div>
                         </form>
                         <a href="/home"><button class="btn btn-danger float-right mr-2">Cancel</button></a>

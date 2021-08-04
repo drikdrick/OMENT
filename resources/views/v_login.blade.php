@@ -42,7 +42,7 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
                         <input id="password" type="password"
@@ -57,7 +57,7 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                        @enderror
                     </div>
                     <div class="row">
                         <!-- /.col -->

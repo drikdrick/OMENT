@@ -39,7 +39,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => 'Email tidak benar.',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists' => 'The selected :attribute is invalid.',
     'file' => 'The :attribute must be a file.',
@@ -56,7 +56,7 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => 'File yang dipilih harus gambar.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -87,14 +87,14 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute setidaknya :min karakter.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
-    'password' => 'The password is incorrect.',
+    'password' => 'Password salah.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
     'required' => 'The :attribute field is required.',
@@ -131,8 +131,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'passwordBaru' => [
+            'min' => 'Password setidaknya :min karakter.',
+            'confirmed' => 'Password Baru tidak sama dengan Konfirmasi Password.'
+        ],
+        'password' => [
+            'confirmed' => 'Password Lama salah.'
         ],
     ],
 

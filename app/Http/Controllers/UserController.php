@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Validator;
+use Brian2694\Toastr\Facades\Toastr;
+
 
 class UserController extends Controller
 {
@@ -57,7 +60,18 @@ class UserController extends Controller
         return view('v_edituser', ['user'=>$user]);
     }
 
+    public function updateProfile()
+    {
+        $user = DB::table('users')->find(Auth::user()->id);
+
+        return view('v_edituser', ['user'=>$user]);
+    }
+
     public function editProfile(Request $request){
+        $request->validate([
+            'lampiran'=>'image',
+            'email'=>'email',
+        ]);
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -68,18 +82,27 @@ class UserController extends Controller
             $user->foto = $fileName;
         }
         $user->save();
+        flash('Profile berhasil diperbaharui!')->success();
         return back();
     }
     public function editPassword(Request $request){
+        $request->validate([
+            'passwordBaru'=>'min:8|confirmed',
+        ]);
         Auth::user()->password;
         if (Hash::check($request->password, Auth::user()->password)) {
             $user = User::find(Auth::user()->id);
             $user->password = Hash::make($request->passwordBaru);
             $user->save();
-
-            return back()->with('success', 'Password berhasil diperbaharui.');
+            flash('Password berhasil diperbaharui!')->success();
+            return back();
         }else {
-            return back()->with('error', 'Password lama tidak benar, harap periksa kembali.');
+            // return back()->with('error', 'Password lama tidak benar, harap periksa kembali.');
+            $request->validate([
+                'password'=>'confirmed',
+            ]);
+            // $request->session()->flash('error', 'Password does not match');
+            return back();
         }
     }
 }

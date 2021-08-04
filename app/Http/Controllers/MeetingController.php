@@ -110,6 +110,7 @@ class MeetingController extends Controller
             $absence->save();
         }
 
+        flash('Rapat berhasil dibuat.')->success();
         return $this->jadwalRapat();
     }
     public function detailJadwalRapat($id)
@@ -156,6 +157,7 @@ class MeetingController extends Controller
         }
         DB::table('meetings')->delete($id);
 
+        flash('Rapat telah dihapus.')->error();
         return $this->jadwalRapat();
     }
 
@@ -211,7 +213,7 @@ class MeetingController extends Controller
             Mail::to($item->email)->send(new MeetingUpdated($meetings));
             $absence->save();
         }
-
+        flash('Rapat berhasil diperbaharui.')->warning();
         return $this->jadwalRapat();
     }
 

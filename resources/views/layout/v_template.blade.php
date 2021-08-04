@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <link rel="stylesheet" href="{{ asset('template/') }}/plugins/summernote/summernote-bs4.min.css">
+
     @stack('scripts')
 </head>
 
@@ -170,6 +171,7 @@
             </section>
 
             <section class="content">
+                @include('flash::message')
 
                 @yield('content')
 

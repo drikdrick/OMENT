@@ -27,16 +27,17 @@ Route::get('/meeting/hasil/download/{id}',[MeetingController::class, 'printPdf']
 Route::get('/meeting/jadwal',[MeetingController::class, 'jadwalRapat'] );
 Route::get('/meeting/jadwal/{id}',[MeetingController::class, 'detailJadwalRapat'] );
 Route::get('/user/{id}',[UserController::class, 'detail'] );
-Route::get('/user/edit/{id}',[UserController::class, 'edit'] ); 
+Route::get('/user.updateProfile',[UserController::class, 'updateProfile'] ); 
 Route::post('/user/edit/editPassword',[UserController::class, 'editPassword'] ); 
 Route::post('/user/edit/editProfile',[UserController::class, 'editProfile'] ); 
+Route::get('/user/edit/{id}',[UserController::class, 'edit'] );
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/user',[UserController::class, 'index'] );
+    Route::get('/user',[UserController::class, 'index'] ); 
     // Route::get('/delete/{id}',[UserController::class, 'delete'] ); 
 });
 

@@ -52,6 +52,7 @@ class AbsencesController extends Controller
         
         $home = new MeetingController;
 
-        return $home->detailJadwalRapat($request->id);
+        flash('Absensi berhasil direkam.')->success();
+        return $home->detailJadwalRapat($request->id); 
     }
 }

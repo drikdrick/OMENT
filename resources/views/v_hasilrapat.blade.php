@@ -1,11 +1,8 @@
 @extends('layout.v_template')
 
-@section('title', 'Rapat')
+@section('title', 'Hasil Rapat')
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <h3>Hasil Rapat</h3>
-        </div>
         <div class="card-body p-0">
             <table id="example1" class="table table-striped projects">
                 <thead>

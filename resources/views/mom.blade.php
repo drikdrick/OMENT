@@ -7,7 +7,7 @@
     <title>&nbsp;</title>
     <style>
         .header, .header-space{
-            height: 150px;
+            height: 175px;
         }
         .footer, .footer-space {
         height: 100px;
@@ -22,8 +22,8 @@
         right: 0px;
         }
         .content{
-            /* margin-left: 100px;
-            margin-right: 100px; */
+            margin-left: 100px;
+            margin-right: 100px;
         }
     </style>
     <link rel="stylesheet" href="{{ asset('template/') }}/dist/css/adminlte.min.css">

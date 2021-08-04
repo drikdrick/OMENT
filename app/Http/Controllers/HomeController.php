@@ -64,6 +64,7 @@ class HomeController extends Controller
         Mail::to($meeting->email)->send(new izinRapat($user, $meeting, $request->pesan));
 
 
-        return $this->index();    
+        flash('Undangan telah ditolak.')->error();
+        return $this->index(); 
     }
 }

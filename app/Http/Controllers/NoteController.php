@@ -42,7 +42,9 @@ class NoteController extends Controller
         $notes->isi=$request->isi;
         $notes->status=null;
         $notes->save();
-
+        $request->validate([
+            'lampiran'=>'image',
+        ]);
         if ($request->hasfile('lampiran')) {
             DB::table('documentation')->where('meetings_id', '=', $request->id)->delete();
             for ($i = 0; $i < count($request->lampiran); $i++) {

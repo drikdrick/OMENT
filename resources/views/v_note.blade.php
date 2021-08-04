@@ -29,6 +29,11 @@
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                     </div>
+                    @error('lampiran')
+                    <span class="alert-danger" role="alert">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
                 <input type="submit" value="Buat" class="btn btn-block btn-primary">
             </div>

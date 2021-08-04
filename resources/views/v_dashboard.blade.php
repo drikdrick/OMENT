@@ -33,16 +33,16 @@
                                                 <td>{{ $item->waktu_mulai }}</td>
                                                 <td>{{ $item->place }}</td>
                                                 <td>
-                                                    <a class="btn btn-primary btn-sm" href="/meeting/jadwal/{{ $item->meetings_id }}">
+                                                    <a class="btn btn-primary btn-sm" href="/meeting/jadwal/{{ $item->meetings_id }}" data-toggle="tooltip" data-placement="left" title="Lihat Data Rapat">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a class="btn btn-success btn-sm" href="/undangan/terimaUndangan/{{ $item->meetings_id }}">
+                                                    <a class="btn btn-success btn-sm" href="/undangan/terimaUndangan/{{ $item->meetings_id }}" data-toggle="tooltip" data-placement="left" title="Terima Undangan Rapat">
                                                         <i class="fas fa-check"></i>
                                                     </a>
                                                     {{-- <a class="btn btn-danger btn-sm" href="/undangan/tolakUndangan/{{ $item->meetings_id }}">
                                                         <i class="fas fa-ban"></i>
                                                     </a> --}}
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" data-id="{{ $item->meetings_id }}">
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-default" data-id="{{ $item->meetings_id }}" data-toggle="tooltip" data-placement="left" title="Tolak Undangan Rapat">
                                                         <i class="fas fa-ban"></i>
                                                     </button>
 

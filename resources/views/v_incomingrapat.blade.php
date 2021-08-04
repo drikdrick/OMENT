@@ -94,10 +94,10 @@
                     @if ($meetings->minuter==Auth::user()->id)
                         <a href="/meeting/notulensi/{{ $meetings->id }}"><button class="btn btn-sm btn-primary" @if($now->toDateTimeString()<=$meetings->tanggal.' '.$meetings->waktu_mulai)
                             disabled
-                        @endif>Catatan</button></a>
+                        @endif>Notulensi Rapat</button></a>
                         <a href="/absen/buatabsen/{{ $meetings->id }}"><button class="btn btn-sm btn-warning" @if($now->toDateTimeString()<=$meetings->tanggal.' '.$meetings->waktu_mulai)
                             disabled
-                        @endif>Absensi</button></a>
+                        @endif>Absensi Rapat</button></a>
                     @endif
                 </div>
             </div>

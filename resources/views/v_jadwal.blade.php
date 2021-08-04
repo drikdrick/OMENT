@@ -52,18 +52,17 @@
                                 {{ $item->name }}
                             </td>
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="/meeting/jadwal/{{ $item->id }}">
+                                <a class="btn btn-primary btn-sm" href="/meeting/jadwal/{{ $item->id }}" data-toggle="tooltip" data-placement="left" title="Lihat Data Rapat">
                                     <i class="fas fa-eye">
                                     </i>
                                 </a>
                                 
-                                @if (auth()->user()->role <= 2)
-                                    <a class="btn btn-info btn-sm" href="/meeting/edit/{{ $item->id }}">
+                                @if (auth()->user()->role == 2)
+                                    <a class="btn btn-info btn-sm" href="/meeting/edit/{{ $item->id }}" data-toggle="tooltip" data-placement="left" title="Edit Data Rapat">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                     </a>
-                                    <a class="btn btn-danger btn-sm swalDefaultSuccess"
-                                        href="/meeting/deleteRapat/{{ $item->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
+                                    <a class="btn btn-danger btn-sm swalDefaultSuccess" data-toggle="tooltip" data-placement="left" title="Hapus Data Rapat" href="/meeting/deleteRapat/{{ $item->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
                                         <i class="fas fa-trash">
                                         </i>
                                     </a>

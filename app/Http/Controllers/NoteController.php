@@ -69,7 +69,7 @@ class NoteController extends Controller
         $user = DB::table('users')->get();
         $meeting = DB::table('meetings')->where('id', $id)->first();
         foreach ($user as $user) {
-            Mail::to($user->email)->send(new publishHasilRapat($meeting));
+            Mail::to($user->email)->send(new laporanHasilRapat($meeting));
         }
         flash('MoM berhasil dipublikasi.')->success();
         return back();

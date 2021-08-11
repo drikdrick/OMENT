@@ -165,10 +165,19 @@ class MeetingController extends Controller
     public function editRapat($id)
     {
         if (!$meetings = DB::table('meetings')->find($id)) {
-            abort(404);
+            flash('Maaf, rapat tidak ditemukan.')->error();
+            return back();
         }
 
         $meetings = DB::table('meetings')->where('meetings.id', $id)->first();
+        $now = Carbon::now();
+
+        if ($meetings->tanggal <= $now) {
+            if ($meetings->waktu_mulai <= $now) {
+                flash('Maaf, rapat yang dipilih telah berlangsung.');
+                return back();
+            }
+        }
         $users = DB::table('users')->where('role', '3')->get();
         $topik = DB::table('topics')->join('meetings', 'meetings.id', '=', 'topics.meeting_id')
             ->where('meetings.id', $id)->get();

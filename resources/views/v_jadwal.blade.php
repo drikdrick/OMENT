@@ -58,14 +58,16 @@
                                 </a>
                                 
                                 @if (auth()->user()->role == 2)
-                                    <a class="btn btn-info btn-sm" href="/meeting/edit/{{ $item->id }}" data-toggle="tooltip" data-placement="left" title="Edit Data Rapat">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                    </a>
-                                    <a class="btn btn-danger btn-sm swalDefaultSuccess" data-toggle="tooltip" data-placement="left" title="Hapus Data Rapat" href="/meeting/deleteRapat/{{ $item->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                    </a>
+                                    @if ($now->toDateTimeString() < $item->tanggal.' '.$item->waktu_mulai)
+                                        <a class="btn btn-info btn-sm" href="/meeting/edit/{{ $item->id }}" data-toggle="tooltip" data-placement="left" title="Edit Data Rapat">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                        </a>
+                                        <a class="btn btn-danger btn-sm swalDefaultSuccess" data-toggle="tooltip" data-placement="left" title="Hapus Data Rapat" href="/meeting/deleteRapat/{{ $item->id }}" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                        </a>
+                                    @endif
                                 @endif
                             </td>
                         </tr>

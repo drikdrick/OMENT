@@ -55,7 +55,8 @@ class MeetingController extends Controller
         ->orderBy('meetings.tanggal', 'desc')
         ->orderBy('meetings.waktu_mulai', 'desc')
         ->get();
-        return view('v_jadwal', ['meetings' => $meetings]);
+        $now = Carbon::now();
+        return view('v_jadwal', ['meetings' => $meetings, 'now' => $now]);
     }
 
     public function buatRapat()

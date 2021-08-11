@@ -12,6 +12,7 @@ use App\Models\Documentations;
 use App\Http\Controllers\TasksController;
 use App\Mail\publishHasilRapat;
 use App\Mail\rejectHasilRapat;
+use App\Mail\laporanHasilRapat;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -42,9 +43,6 @@ class NoteController extends Controller
         $notes->isi=$request->isi;
         $notes->status=null;
         $notes->save();
-        $request->validate([
-            'lampiran'=>'image',
-        ]);
         if ($request->hasfile('lampiran')) {
             DB::table('documentation')->where('meetings_id', '=', $request->id)->delete();
             for ($i = 0; $i < count($request->lampiran); $i++) {

@@ -124,13 +124,15 @@
         </div>
         <div class="card-body">
             <div class="row">
-                @foreach ($dokumentasi as $item)
-                <div class="col-sm-2">
-                  <a href="{{ url('dokumentasi/' . $item->Path) }}" data-toggle="lightbox" data-title="Dokumentasi" data-gallery="gallery">
-                    <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="Dokuemntasi Rapat"/>
-                  </a>
-                </div>
-                @endforeach
+                @if (!is_null($dokumentasi))
+                    @foreach ($dokumentasi as $item)
+                    <div class="col-sm-2">
+                    <a href="{{ url('dokumentasi/' . $item->Path) }}" data-toggle="lightbox" data-title="Dokumentasi" data-gallery="gallery">
+                        <img src="{{ url('dokumentasi/' . $item->Path) }}" class="img-fluid mb-2" alt="Dokuemntasi Rapat"/>
+                    </a>
+                    </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -155,8 +157,8 @@
                     <form method="POST" action="tolakHasilRapat">
                     @csrf
                     <div class="modal-body">
-                        <input type="text" value="{{ $item->meetings_id }}" name="id" hidden>
-                        <textarea name="pesan" id="pesan" cols="65" rows="5" required></textarea>
+                        <input type="text" value="{{ $meetings->id }}" name="id" hidden>
+                        <textarea name="pesan" id="pesan" cols="60" rows="5" required></textarea>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
